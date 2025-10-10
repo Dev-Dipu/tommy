@@ -4,6 +4,7 @@ import HomeScreen from "@/components/HomeScreen";
 import CardScreen from "@/components/CardScreen";
 import DifferenceScreen from "@/components/DifferenceScreen";
 import WonderScreen from "@/components/WonderScreen";
+import FooterScreen from "@/components/FooterScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,6 +23,7 @@ export default function Home() {
       <CardScreen />
       <DifferenceScreen />
       <WonderScreen />
+      <FooterScreen />
     </div>
   );
 }
