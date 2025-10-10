@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import { AiFillFacebook, AiFillInstagram, FaTwitter } from "react-icons/ai";
+import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
+import { FaTwitter } from "react-icons/fa6";
 
 const FooterScreen = () => {
     return (
@@ -43,9 +44,9 @@ const FooterScreen = () => {
                             ))}
                         </div>
                         </div>
-                        <div className="flex flex-col justify-end">
+                        <div className="flex flex-col justify-end items-end">
                             <h5 className="text-xl">Socials</h5>
-                            <div className="flex gap-2.5 text-2xl">
+                            <div className="flex gap-2.5 text-2xl mt-3">
                                 <AiFillInstagram />
                                 <AiFillFacebook />
                                 <FaTwitter />
