@@ -22,7 +22,7 @@ export default function Home() {
         new LocomotiveScroll();
     }, []);
     return (
-        <div className="main text-white bg-[url('/images/grids.svg')] overflow-hidden">
+        <div className="main font-[inter] text-white bg-[url('/images/grids.svg')] overflow-hidden">
             <HomeScreen />
             <CardScreen />
             <DifferenceScreen />

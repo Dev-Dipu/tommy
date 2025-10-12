@@ -95,7 +95,7 @@ const HomeScreen = () => {
 
     return (
         <div className="min-h-screen flex flex-col items-center relative">
-            <div className="bggradient absolute bg-[url('/images/overlay.png')] bg-cover bg-center md:top-1/2 left-1/2 -translate-1/2 md:w-4/5 w-full h-4/5"></div>
+            <div className="bggradient absolute bg-[url('/images/overlay.png')] bg-center bg-[length:120%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] md:w-4/5 w-full h-4/5"></div>
 
             <header
                 ref={headerRef}
@@ -127,7 +127,7 @@ const HomeScreen = () => {
                 className="md:text-4xl text-lg text-center md:w-1/2 w-[90%] mt-14"
                 style={{ perspective: "1000px" }}
             >
-                {splitText("Powering the future of Businesses with AI, Digital Innovation & Media")}
+                {splitText("Powering the future of")}<span className='font-[ppedititalic]'>Businesses </span>{splitText("with AI, Digital Innovation & Media")}
             </h2>
 
             <div
@@ -143,11 +143,10 @@ const HomeScreen = () => {
             </div>
 
             <p ref={pRef} className="w-[28%] text-center" style={{ perspective: "1000px" }}>
-                {splitText("Modern solutions for businesses and creators who want to grow, stand out, and save time.")}
+                {splitText("Modern solutions for  and creators who want to grow, stand out, and save time.")}
             </p>
-
             <h3 ref={h3Ref} className="w-3/5 text-3xl text-center my-36" style={{ perspective: "1000px" }}>
-                {splitText("We leverage AI to achieve more Efficiency with less Costs and empower creators to focus on what really matters.")}
+                {splitText("We leverage AI to achieve more")} <span className="font-[ppedititalic]">Efficiency</span> {splitText("with less Costs and empower creators to focus on what really matters.")}
             </h3>
         </div>
     );

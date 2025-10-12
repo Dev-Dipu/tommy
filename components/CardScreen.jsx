@@ -4,6 +4,7 @@ import { GoArrowDown } from "react-icons/go";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -128,7 +129,8 @@ const CardScreen = () => {
   }, []);
 
   return (
-    <div className="h-screen flex items-center justify-center" style={{ perspective: "2000px" }}>
+    <div className="h-screen flex items-center justify-center relative" style={{ perspective: "2000px" }}>
+      <Image className="absolute" width={1000} height={1} src={'/images/ellipseoverlay.svg'} alt="kuchbhi" />
       <div className="flex gap-8">
         <div
           ref={card1Ref}
