@@ -92,7 +92,7 @@ const FooterScreen = () => {
     };
 
     return (
-        <div className="footer-container h-[50vh] flex flex-col relative">
+        <div className="footer-container h-[50vh] flex flex-col relative bg-[url('/images/roundarc.png')] bg-center bg-no-repeat">
             <Image
                             className="absolute -translate-y-1/2 -translate-x-1/3"
                             width={1000}
@@ -172,7 +172,7 @@ const FooterScreen = () => {
                     </div>
                 </div>
             </div>
-            <div className="px-7 py-5 flex justify-between items-center border-t-[0.6]">
+            <div className="px-7 py-5 flex justify-between items-center border-t-[0.6] bg-[#040404]">
                 <Link 
                     ref={(el) => (bottomLinksRef.current[0] = el)}
                     className="relative overflow-hidden inline-block group" 

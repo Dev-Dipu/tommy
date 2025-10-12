@@ -13,11 +13,11 @@ const DifferenceScreen = () => {
   const targetNumbers = [81, 24, 37]; // Target numbers for each card
 
   useEffect(() => {
-    // Pin the section
+    // Pin the section — increased end value for longer pin
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=150%",
+      end: "+=80%", // was 60%, now stays a bit longer so last card completes
       scrub: true,
       pin: true,
     });
@@ -40,8 +40,9 @@ const DifferenceScreen = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: `${15 + i * 25}% center`,
-            end: `${35 + i * 25}% center`,
+            // shifted scroll starts earlier for even spacing
+            start: `${10 + i * 20}% center`, // was 15 + i * 25%
+            end: `${30 + i * 20}% center`,   // was 35 + i * 25%
             scrub: 0.8,
             onEnter: () => animateNumber(i),
           },
@@ -76,17 +77,17 @@ const DifferenceScreen = () => {
         This is how we are <span className="font-[ppedititalic]">making a</span>
       </h3>
 
-      {/* Large background word */}
-      <h1 className="text-[110px] font-[ppedititalic] text-white absolute z-0 select-none">
-        difference
-      </h1>
-
       {/* Cards Container */}
       <div className="w-3/5 h-[70%] flex items-center justify-center relative">
+        {/* Large background word */}
+        <h1 className="text-[110px] font-[ppedititalic] text-white absolute z-0 select-none">
+          difference
+        </h1>
+
         {/* Box 1 */}
         <div
           ref={(el) => (boxesRef.current[0] = el)}
-          className="box absolute flex items-center justify-center -translate-y-1/2 -translate-x-2/3 -rotate-3 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat"
+          className="box absolute flex items-center justify-center -translate-y-1/2 -translate-x-2/3 -rotate-3 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat z-10"
         >
           <div className="w-[65%] font-[ppedit] text-3xl text-center">
             <div className="flex justify-center gap-2 items-center">
@@ -103,7 +104,7 @@ const DifferenceScreen = () => {
         {/* Box 2 */}
         <div
           ref={(el) => (boxesRef.current[1] = el)}
-          className="box absolute flex items-center justify-center translate-y-1/2 -rotate-2 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat"
+          className="box absolute flex items-center justify-center -bottom-14 -rotate-2 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat z-10"
         >
           <div className="w-[65%] font-[ppedit] text-3xl text-center">
             <div className="flex justify-center gap-2 items-center">
@@ -120,7 +121,7 @@ const DifferenceScreen = () => {
         {/* Box 3 */}
         <div
           ref={(el) => (boxesRef.current[2] = el)}
-          className="box absolute flex items-center justify-center -translate-y-1/2 translate-x-[70%] rotate-[5.45deg] w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat"
+          className="box absolute flex items-center justify-center -translate-y-1/2 translate-x-[70%] rotate-[5.45deg] w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat z-10"
         >
           <div className="w-[65%] font-[ppedit] text-3xl text-center">
             <div className="flex justify-center gap-2 items-center">
