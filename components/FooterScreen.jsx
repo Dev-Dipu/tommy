@@ -6,6 +6,7 @@ import { FaTwitter } from "react-icons/fa6";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -91,12 +92,19 @@ const FooterScreen = () => {
     };
 
     return (
-        <div className="footer-container h-[50vh] flex flex-col">
+        <div className="footer-container h-[50vh] flex flex-col relative">
+            <Image
+                            className="absolute -translate-y-1/2 -translate-x-1/3"
+                            width={1000}
+                            height={1}
+                            src={"/images/ellipseoverlay.svg"}
+                            alt="kuchbhi"
+                        />
             <div className="p-7 h-full border-t-[0.6]">
                 <div className="flex justify-between h-full">
                     <div>
                         <h4 ref={titleRef} className="text-2xl">
-                            {splitText("New Gen Services, Modern Solutions")}
+                            {splitText("New Gen Services,")}<span className="font-[ppedititalic]">Modern Solutions</span>
                         </h4>
                         <button 
                             ref={buttonRef}

@@ -60,12 +60,11 @@ const DifferenceScreen = () => {
     };
 
     return (
-        <div
-            className="h-screen flex flex-col items-center justify-center gap-20"
+        <div className="h-screen flex flex-col items-center justify-center gap-20"
             style={{ perspective: "2000px" }}
         >
             <h3 ref={headingRef} className="text-3xl">
-                {splitText("This is how we are making a")}
+                {splitText("This is how we are")}<span className="font-[ppedititalic]">making a</span>
             </h3>
             <div className="w-3/5 h-[70%] flex items-center justify-center relative">
                 <h1 className="text-[110px] font-[ppedititalic]">difference</h1>

@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -74,12 +75,19 @@ const WonderScreen = () => {
 
   return (
     <div className='h-screen flex justify-center items-center' style={{ perspective: "2000px" }}>
+      <Image
+                className="absolute"
+                width={1000}
+                height={1}
+                src={"/images/ellipseoverlay.svg"}
+                alt="kuchbhi"
+            />
       <div 
         ref={containerRef}
         className="w-2/5 h-full bg-[url('/images/wonder.svg')] bg-no-repeat bg-center bg-contain flex flex-col items-center justify-center"
       >
         <h2 ref={h2Ref} className='text-4xl'>
-          {splitText("Wodering how we can help?")}
+          {splitText("Wodering how we")}<span className='font-[ppedititalic]'>can help?</span>
         </h2>
         <h3 ref={h3Ref} className='text-3xl w-3/5 text-center mt-10'>
           {splitText("Book a meeting or get in touch for a tailored solution.")}
