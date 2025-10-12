@@ -15,7 +15,6 @@ const FooterScreen = () => {
     const quickLinksRef = useRef(null);
     const linksRef = useRef([]);
     const socialsRef = useRef(null);
-    const socialContainerRef = useRef(null);
     const bottomLinksRef = useRef([]);
 
     useGSAP(() => {
@@ -68,13 +67,6 @@ const FooterScreen = () => {
             ease: "power2.out"
         }, 0.3);
 
-        // Social icons container
-        tl.from(socialContainerRef.current, {
-            y: 30,
-            opacity: 0,
-            scale: 0.8,
-            ease: "back.out(1.5)"
-        }, 0.4);
 
         // Bottom links
         tl.from(bottomLinksRef.current, {
@@ -157,30 +149,15 @@ const FooterScreen = () => {
                         </div>
                         <div className="flex flex-col justify-end items-end">
                             <h5 ref={socialsRef} className="text-xl">Socials</h5>
-                            <div ref={socialContainerRef} className="flex gap-2.5 text-2xl mt-3">
-                                <div className="relative overflow-hidden inline-block cursor-pointer group h-8 w-8 flex items-center justify-center scale-90 hover:scale-100 transition-transform duration-300">
-                                    <span className="inline-block transition-transform duration-500 ease-out group-hover:-translate-y-full">
-                                        <AiFillInstagram />
-                                    </span>
-                                    <span className="absolute left-0 top-0 w-full h-full flex items-center justify-center translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
-                                        <AiFillInstagram />
-                                    </span>
+                            <div className="flex gap-2.5 text-2xl mt-3">
+                                <div className="cursor-pointer scale-90 hover:scale-100 transition-transform duration-300">
+                                    <AiFillInstagram />
                                 </div>
-                                <div className="relative overflow-hidden inline-block cursor-pointer group h-8 w-8 flex items-center justify-center scale-90 hover:scale-100 transition-transform duration-300">
-                                    <span className="inline-block transition-transform duration-500 ease-out group-hover:-translate-y-full">
-                                        <AiFillFacebook />
-                                    </span>
-                                    <span className="absolute left-0 top-0 w-full h-full flex items-center justify-center translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
-                                        <AiFillFacebook />
-                                    </span>
+                                <div className="cursor-pointer scale-90 hover:scale-100 transition-transform duration-300">
+                                    <AiFillFacebook />
                                 </div>
-                                <div className="relative overflow-hidden inline-block cursor-pointer group h-8 w-8 flex items-center justify-center scale-90 hover:scale-100 transition-transform duration-300">
-                                    <span className="inline-block transition-transform duration-500 ease-out group-hover:-translate-y-full">
-                                        <FaTwitter />
-                                    </span>
-                                    <span className="absolute left-0 top-0 w-full h-full flex items-center justify-center translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
-                                        <FaTwitter />
-                                    </span>
+                                <div className="cursor-pointer scale-90 hover:scale-100 transition-transform duration-300">
+                                    <FaTwitter />
                                 </div>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CgMenuRight } from "react-icons/cg";
 import Orb from "./Orb";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -94,14 +95,14 @@ const HomeScreen = () => {
 
     return (
         <div className="min-h-screen flex flex-col items-center relative">
-            <div className="bggradient absolute bg-[url('/images/overlay.png')] bg-cover bg-center top-1/2 left-1/2 -translate-1/2 w-4/5 h-4/5"></div>
+            <div className="bggradient absolute bg-[url('/images/overlay.png')] bg-cover bg-center md:top-1/2 left-1/2 -translate-1/2 md:w-4/5 w-full h-4/5"></div>
 
             <header
                 ref={headerRef}
                 className="w-full flex justify-between text-lg p-7"
             >
                 <h1 className="select-none">Logo</h1>
-                <nav className="flex gap-9">
+                <nav className="md:flex gap-9 hidden">
                     {["Services", "Impact", "Contact"].map((item, i) => (
                         <Link
                             key={i}
@@ -117,12 +118,13 @@ const HomeScreen = () => {
                             </span>
                         </Link>
                     ))}
-                </nav>
+                </nav> 
+                <CgMenuRight className="text-2xl md:hidden" />
             </header>
 
             <h2
                 ref={h2Ref}
-                className="text-4xl text-center w-1/2 mt-14"
+                className="md:text-4xl text-lg text-center md:w-1/2 w-[90%] mt-14"
                 style={{ perspective: "1000px" }}
             >
                 {splitText("Powering the future of Businesses with AI, Digital Innovation & Media")}
