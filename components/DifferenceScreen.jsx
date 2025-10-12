@@ -8,87 +8,119 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const DifferenceScreen = () => {
-    const headingRef = useRef(null);
-    const imageRef = useRef(null);
+  const sectionRef = useRef(null);
+  const boxesRef = useRef([]);
 
-    useGSAP(() => {
-        // Heading word animation
-        const words = headingRef.current.querySelectorAll(".word");
-        gsap.from(words, {
-            scrollTrigger: {
-                trigger: headingRef.current,
-                start: "top 80%",
-                end: "top 45%",
-                scrub: 1,
-            },
-            y: 50,
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      // Pin the section for controlled scroll
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=150%",
+        scrub: true,
+        pin: true,
+      });
+
+      // Animate each card
+      boxesRef.current.forEach((box, i) => {
+        gsap.fromTo(
+          box,
+          {
             opacity: 0,
+            y: 100,
             scale: 0.8,
-            rotateX: -45,
-            transformOrigin: "top center",
-            stagger: 0.05,
-            ease: "power2.out",
-        });
-
-        // Image animation with scale and fade
-        gsap.from(imageRef.current, {
+            rotateY: i === 0 ? -25 : i === 1 ? 25 : -20,
+            rotateX: 10,
+            transformOrigin: "center center",
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotateY: 0,
+            rotateX: 0,
+            ease: "power3.out",
             scrollTrigger: {
-                trigger: imageRef.current,
-                start: "top 100%",
-                end: "top 40%",
-                scrub: 1,
+              trigger: sectionRef.current,
+              start: `${15 + i * 20}% center`,
+              end: `${30 + i * 20}% center`,
+              scrub: true,
             },
-            scale: 0.7,
-            opacity: 0,
-            y: 80,
-            rotateY: 15,
-            ease: "power2.out",
-        });
-    }, []);
+          }
+        );
+      });
+    }, sectionRef);
 
-    // Split text into words
-    const splitText = (text) => {
-        return text.split(" ").map((word, i) => (
-            <span
-                key={i}
-                className="word inline-block"
-                style={{ marginRight: "0.30em" }}
-            >
-                {word}
-            </span>
-        ));
-    };
+    return () => ctx.revert();
+  }, []);
 
-    return (
-        <div className="h-screen flex flex-col items-center justify-center gap-20"
-            style={{ perspective: "2000px" }}
+  return (
+    <section
+      ref={sectionRef}
+      className="min-h-screen flex flex-col items-center justify-center text-white"
+    >
+      <div className="h-screen flex flex-col items-center justify-center gap-16 sticky top-0">
+        {/* Headline */}
+        <h3 className="text-3xl font-semibold text-center mb-8">
+          This is how we are making a
+        </h3>
+
+        {/* Static big text */}
+        <h1 className="text-[120px] font-[ppedititalic] text-center absolute z-0 text-white select-none tracking-tight">
+          difference
+        </h1>
+
+        {/* Cards */}
+        <div
+          className="w-3/5 h-[70%] flex items-center justify-center relative"
+          style={{ perspective: "2000px" }}
         >
-            <h3 ref={headingRef} className="text-3xl">
-                {splitText("This is how we are")}<span className="font-[ppedititalic]">making a</span>
-            </h3>
-            <div className="w-3/5 h-[70%] flex items-center justify-center relative">
-                <h1 className="text-[110px] font-[ppedititalic]">difference</h1>
-                <div className="box absolute flex items-center justify-center -translate-y-1/2 -translate-x-2/3 -rotate-3 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center">
-                    <div className="w-[65%] font-[ppedit] text-3xl">
-                      <div className="flex justify-center gap-2"><span className="h-8 w-16 bg-amber-50 block"></span><h3>Hours</h3></div>
-                    <h3 className="text-center">Saved weekly</h3>
-                    </div>
-                </div>
-                <div className="box absolute flex items-center justify-center translate-y-1/2 -rotate-2 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center">
-                    <div className="w-[65%] font-[ppedit] text-3xl">
-                      <div className="flex justify-center gap-2"><span className="h-8 w-16 bg-amber-50 block"></span><h3>Brands</h3></div>
-                    <h3 className="text-center">Launched</h3>
-                    </div>
-                </div>
-                <div className="box absolute flex items-center justify-center -translate-y-1/2 translate-x-[70%] rotate-[5.45deg] w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center">
-                    <div className="w-[65%] font-[ppedit] text-3xl">
-                      <div className="flex justify-center gap-2"><span className="h-8 w-16 bg-amber-50 block"></span><h3>Hours</h3></div>
-                    <h3 className="text-center">Saved weekly</h3>
-                    </div>
-                </div>
+          {/* Box 1 */}
+          <div
+            ref={(el) => (boxesRef.current[0] = el)}
+            className="absolute flex items-center justify-center -translate-y-1/2 -translate-x-2/3 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat z-10"
+          >
+            <div className="w-[65%] font-[ppedit] text-3xl text-center">
+              <div className="flex justify-center gap-2 mb-1">
+                <span className="h-8 w-16 bg-amber-50 block"></span>
+                <h3>Hours</h3>
+              </div>
+              <h3>Saved Weekly</h3>
             </div>
+          </div>
+
+          {/* Box 2 */}
+          <div
+            ref={(el) => (boxesRef.current[1] = el)}
+            className="absolute flex items-center justify-center translate-y-1/2 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat z-10"
+          >
+            <div className="w-[65%] font-[ppedit] text-3xl text-center">
+              <div className="flex justify-center gap-2 mb-1">
+                <span className="h-8 w-16 bg-amber-50 block"></span>
+                <h3>Brands</h3>
+              </div>
+              <h3>Launched</h3>
+            </div>
+          </div>
+
+          {/* Box 3 */}
+          <div
+            ref={(el) => (boxesRef.current[2] = el)}
+            className="absolute flex items-center justify-center -translate-y-1/2 translate-x-[70%] w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat z-10"
+          >
+            <div className="w-[65%] font-[ppedit] text-3xl text-center">
+              <div className="flex justify-center gap-2 mb-1">
+                <span className="h-8 w-16 bg-amber-50 block"></span>
+                <h3>Clients</h3>
+              </div>
+              <h3>Collaborated</h3>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+    </section>
+  );
 };
 
 export default DifferenceScreen;
