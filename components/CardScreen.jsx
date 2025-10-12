@@ -1,12 +1,8 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { GoArrowDown } from "react-icons/go";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+import gsap from "gsap";
 
 const CardScreen = () => {
     const card1Ref = useRef(null);
@@ -18,114 +14,31 @@ const CardScreen = () => {
     const card1BtnRef = useRef(null);
     const card2BtnRef = useRef(null);
 
-    useGSAP(() => {
-        // Card 1 animations
-        gsap.from(card1Ref.current, {
-            scrollTrigger: {
-                trigger: card1Ref.current,
-                start: "top 80%",
-                end: "top 50%",
-                scrub: 1,
-            },
-            x: -100,
-            opacity: 0,
-            scale: 0.9,
-            rotateY: -15,
-            ease: "power2.out",
-        });
+    useEffect(() => {
+        // Set initial grayscale
+        gsap.set([card1Ref.current, card2Ref.current], { filter: "grayscale(1)" });
 
-        gsap.from(card1TitleRef.current, {
-            scrollTrigger: {
-                trigger: card1Ref.current,
-                start: "top 75%",
-                end: "top 45%",
-                scrub: 1,
-            },
-            y: 40,
-            opacity: 0,
-            scale: 0.8,
-            ease: "power2.out",
-        });
+        // Card 1 hover
+        const card1 = card1Ref.current;
+        const handleCard1Enter = () => gsap.to(card1, { filter: "grayscale(0)", duration: 0.4, ease: "power2.out" });
+        const handleCard1Leave = () => gsap.to(card1, { filter: "grayscale(1)", duration: 0.4, ease: "power2.out" });
+        card1.addEventListener("mouseenter", handleCard1Enter);
+        card1.addEventListener("mouseleave", handleCard1Leave);
 
-        gsap.from(card1ItemsRef.current, {
-            scrollTrigger: {
-                trigger: card1Ref.current,
-                start: "top 70%",
-                end: "top 40%",
-                scrub: 1,
-            },
-            y: 30,
-            opacity: 0,
-            stagger: 0.1,
-            ease: "power2.out",
-        });
+        // Card 2 hover
+        const card2 = card2Ref.current;
+        const handleCard2Enter = () => gsap.to(card2, { filter: "grayscale(0)", duration: 0.4, ease: "power2.out" });
+        const handleCard2Leave = () => gsap.to(card2, { filter: "grayscale(1)", duration: 0.4, ease: "power2.out" });
+        card2.addEventListener("mouseenter", handleCard2Enter);
+        card2.addEventListener("mouseleave", handleCard2Leave);
 
-        gsap.from(card1BtnRef.current, {
-            scrollTrigger: {
-                trigger: card1Ref.current,
-                start: "top 65%",
-                end: "top 35%",
-                scrub: 1,
-            },
-            y: 30,
-            opacity: 0,
-            scale: 0.9,
-            ease: "power2.out",
-        });
-
-        // Card 2 animations
-        gsap.from(card2Ref.current, {
-            scrollTrigger: {
-                trigger: card2Ref.current,
-                start: "top 80%",
-                end: "top 50%",
-                scrub: 1,
-            },
-            x: 100,
-            opacity: 0,
-            scale: 0.9,
-            rotateY: 15,
-            ease: "power2.out",
-        });
-
-        gsap.from(card2TitleRef.current, {
-            scrollTrigger: {
-                trigger: card2Ref.current,
-                start: "top 75%",
-                end: "top 45%",
-                scrub: 1,
-            },
-            y: 40,
-            opacity: 0,
-            scale: 0.8,
-            ease: "power2.out",
-        });
-
-        gsap.from(card2ItemsRef.current, {
-            scrollTrigger: {
-                trigger: card2Ref.current,
-                start: "top 70%",
-                end: "top 40%",
-                scrub: 1,
-            },
-            y: 30,
-            opacity: 0,
-            stagger: 0.1,
-            ease: "power2.out",
-        });
-
-        gsap.from(card2BtnRef.current, {
-            scrollTrigger: {
-                trigger: card2Ref.current,
-                start: "top 65%",
-                end: "top 35%",
-                scrub: 1,
-            },
-            y: 30,
-            opacity: 0,
-            scale: 0.9,
-            ease: "power2.out",
-        });
+        // Cleanup
+        return () => {
+            card1.removeEventListener("mouseenter", handleCard1Enter);
+            card1.removeEventListener("mouseleave", handleCard1Leave);
+            card2.removeEventListener("mouseenter", handleCard2Enter);
+            card2.removeEventListener("mouseleave", handleCard2Leave);
+        };
     }, []);
 
     return (
@@ -143,7 +56,7 @@ const CardScreen = () => {
             <div className="flex gap-8">
                 <div
                     ref={card1Ref}
-                    className="card1 relative flex items-center justify-center w-full h-full bg-no-repeat bg-center bg-[length:40%]"
+                    className="card1 group relative flex items-center justify-center w-full h-full bg-no-repeat bg-center bg-[length:40%]"
                     style={{
                         backgroundImage: "url('./images/cardbgDesign.svg')",
                     }}
@@ -160,7 +73,7 @@ const CardScreen = () => {
                             </h3>
                             <div className="absolute -bottom-0.5 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
                         </div>
-                        <div className="flex flex-col items-center gap-2 text-xl">
+                        <div className="flex flex-col items-center gap-2 text-lg">
                             <p ref={(el) => (card1ItemsRef.current[0] = el)}>
                                 AI agents & automation
                             </p>
@@ -203,7 +116,7 @@ const CardScreen = () => {
 
                 <div
                     ref={card2Ref}
-                    className="card2 relative flex items-center justify-center w-full h-full bg-no-repeat bg-center bg-[length:40%]"
+                    className="card2 group relative flex items-center justify-center w-full h-full bg-no-repeat bg-center bg-[length:40%]"
                     style={{
                         backgroundImage: "url('./images/cardbgDesign.svg')",
                     }}
@@ -220,7 +133,7 @@ const CardScreen = () => {
                             </h3>
                             <div className="absolute -bottom-0.5 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
                         </div>
-                        <div className="flex flex-col items-center gap-2 text-xl">
+                        <div className="flex flex-col items-center gap-2 text-lg">
                             <p
                                 ref={(el) => (card2ItemsRef.current[0] = el)}
                                 className="w-4/5"
