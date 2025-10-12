@@ -93,8 +93,8 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
       return vec4(colorIn.rgb / (a + 1e-5), a);
     }
 
-    const vec3 baseColor1 = vec3(0.611765, 0.262745, 0.996078);
-    const vec3 baseColor2 = vec3(0.298039, 0.760784, 0.913725);
+    const vec3 baseColor1 = vec3(0.7, 0.3, 1.0);
+    const vec3 baseColor2 = vec3(0.5, 0.4, 0.95);
     const float innerRadius = 0.6;
     const float noiseScale = 0.65;
 
@@ -131,6 +131,12 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
       
       vec3 col = mix(color1, color2, cl);
       col = (col + v1) * v2 * v3;
+      
+      // Fill entire orb with color - better blending
+      float centerFill = smoothstep(0.5, 0.0, len);
+      vec3 centerColor = mix(color1, color2, n0) * (0.3 + v1 * 0.5);
+      col = mix(col, centerColor, centerFill * smoothstep(1.0, 0.5, v3));
+      
       col = clamp(col, 0.0, 1.0);
       
       return extractAlpha(col);
