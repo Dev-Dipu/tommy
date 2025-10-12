@@ -64,8 +64,11 @@ const DifferenceScreen = () => {
       <h3 ref={headingRef} className='text-3xl'>
         {splitText("This is how we are making a")}
       </h3>
-      <div ref={imageRef}>
-        <Image alt='nothingtoknow' width={700} height={1} src={'/images/difference.svg'} />
+      <div className='w-3/5 h-[70%] flex items-center justify-center relative'>
+        <h1 className='text-[110px] font-[ppedititalic]'>difference</h1>
+        <div className="box absolute -translate-y-1/2 -translate-x-2/3 -rotate-3 w-80 aspect-square bg-[url('/images/glowbox.svg')]">
+          <h3>Hours</h3>
+        </div>
       </div>
     </div>
   );
