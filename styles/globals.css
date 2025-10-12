@@ -59,6 +59,10 @@
   font-family: ppedititalic;
   src: url('/fonts/ppedititalic.woff2');
 }
+@font-face {
+  font-family: ppeultraitalic;
+  src: url('/fonts/ppultralight.otf');
+}
 
 
 @theme inline {
