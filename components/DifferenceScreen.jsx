@@ -1,7 +1,8 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,15 +10,27 @@ const DifferenceScreen = () => {
   const sectionRef = useRef(null);
   const boxesRef = useRef([]);
   const numbersRef = useRef([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   const targetNumbers = [81, 24, 37]; // Target numbers for each card
+
+  useEffect(() => {
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth < window.innerHeight);
+    };
+
+    checkDevice(); // Run once on mount
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
 
   useEffect(() => {
     // Pin the section — increased end value for longer pin
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=80%", // was 60%, now stays a bit longer so last card completes
+      end: `+=${isMobile ? "40%" : "80%"}`, // was 60%, now stays a bit longer so last card completes
       scrub: true,
       pin: true,
     });
@@ -69,16 +82,23 @@ const DifferenceScreen = () => {
   return (
     <section
       ref={sectionRef}
-      className="h-screen flex flex-col items-center justify-center gap-20 text-white"
+      className="h-screen flex flex-col items-center justify-center gap-20 text-white pointer-events-none"
       style={{ perspective: "2000px" }}
     >
+       <Image
+                      className="absolute scale-200"
+                      width={1000}
+                      height={1}
+                      src={"/images/ellipseoverlay.svg"}
+                      alt="kuchbhi"
+                  />
       {/* Heading */}
-      <h3 className="text-3xl text-center font-semibold">
-        This is how we are <span className="font-[ppedititalic]">making a</span>
+      <h3 className="md:text-3xl text-xl text-center font-semibold">
+        This is how we are <span className="font-[ppedititalic] font-medium">making a</span>
       </h3>
 
       {/* Cards Container */}
-      <div className="w-3/5 h-[70%] flex items-center justify-center relative">
+      <div className="w-3/5 h-[70%] flex items-center justify-center relative md:scale-90 scale-50">
         {/* Large background word */}
         <h1 className="text-[110px] font-[ppedititalic] text-white absolute z-0 select-none">
           difference
@@ -104,7 +124,7 @@ const DifferenceScreen = () => {
         {/* Box 2 */}
         <div
           ref={(el) => (boxesRef.current[1] = el)}
-          className="box absolute flex items-center justify-center -bottom-14 -rotate-2 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat z-10"
+          className="box absolute flex items-center justify-center md:-bottom-14 bottom-0 -rotate-2 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat z-10"
         >
           <div className="w-[65%] font-[ppedit] text-3xl text-center">
             <div className="flex justify-center gap-2 items-center">

@@ -74,9 +74,9 @@ const WonderScreen = () => {
   };
 
   return (
-    <div className='h-screen flex justify-center items-center' style={{ perspective: "2000px" }}>
+    <div className='md:h-screen h-[60vh] flex justify-center items-center' style={{ perspective: "2000px" }}>
       <Image
-                className="absolute"
+                className="absolute scale-200"
                 width={1000}
                 height={1}
                 src={"/images/ellipseoverlay.svg"}
@@ -84,12 +84,12 @@ const WonderScreen = () => {
             />
       <div 
         ref={containerRef}
-        className="w-2/5 h-full bg-[url('/images/wonder.svg')] bg-no-repeat bg-center bg-contain flex flex-col items-center justify-center"
+        className="md:w-2/5 h-full bg-[url('/images/wonder.svg')] bg-no-repeat bg-center bg-contain flex flex-col items-center justify-center"
       >
-        <h2 ref={h2Ref} className='text-4xl'>
+        <h2 ref={h2Ref} className='md:text-4xl text-xl'>
           {splitText("Wodering how we")}<span className='font-[ppedititalic]'>can help?</span>
         </h2>
-        <h3 ref={h3Ref} className='text-3xl w-3/5 text-center mt-10'>
+        <h3 ref={h3Ref} className='md:text-3xl mt-6 w-3/5 text-center md:mt-10'>
           {splitText("Book a meeting or get in touch for a tailored solution.")}
         </h3>
         <button 

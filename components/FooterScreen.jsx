@@ -25,66 +25,89 @@ const FooterScreen = () => {
                 start: "top 85%",
                 end: "top 45%",
                 scrub: 0.8,
-            }
+            },
         });
 
         // Title word animation
-        const titleWords = titleRef.current.querySelectorAll('.word');
-        tl.from(titleWords, {
-            y: 40,
-            opacity: 0,
-            scale: 0.8,
-            stagger: 0.03,
-            ease: "power2.out"
-        }, 0);
+        const titleWords = titleRef.current.querySelectorAll(".word");
+        tl.from(
+            titleWords,
+            {
+                y: 40,
+                opacity: 0,
+                scale: 0.8,
+                stagger: 0.03,
+                ease: "power2.out",
+            },
+            0
+        );
 
         // Button animation
-        tl.from(buttonRef.current, {
-            y: 30,
-            opacity: 0,
-            scale: 0.9,
-            ease: "back.out(1.5)"
-        }, 0.2);
+        tl.from(
+            buttonRef.current,
+            {
+                y: 30,
+                opacity: 0,
+                scale: 0.9,
+                ease: "back.out(1.5)",
+            },
+            0.2
+        );
 
         // Quick Links heading
-        tl.from(quickLinksRef.current, {
-            y: 30,
-            opacity: 0,
-            ease: "power2.out"
-        }, 0.1);
+        tl.from(
+            quickLinksRef.current,
+            {
+                y: 30,
+                opacity: 0,
+                ease: "power2.out",
+            },
+            0.1
+        );
 
         // Links stagger
-        tl.from(linksRef.current, {
-            x: 30,
-            opacity: 0,
-            stagger: 0.08,
-            ease: "power2.out"
-        }, 0.25);
+        tl.from(
+            linksRef.current,
+            {
+                x: 30,
+                opacity: 0,
+                stagger: 0.08,
+                ease: "power2.out",
+            },
+            0.25
+        );
 
         // Socials heading
-        tl.from(socialsRef.current, {
-            y: 30,
-            opacity: 0,
-            ease: "power2.out"
-        }, 0.3);
-
+        tl.from(
+            socialsRef.current,
+            {
+                y: 30,
+                opacity: 0,
+                ease: "power2.out",
+            },
+            0.3
+        );
 
         // Bottom links
-        tl.from(bottomLinksRef.current, {
-            y: 20,
-            opacity: 0,
-            stagger: 0.1,
-            ease: "power2.out"
-        }, 0.5);
+        tl.from(
+            bottomLinksRef.current,
+            {
+                y: 20,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "power2.out",
+            },
+            0.5
+        );
     }, []);
 
     // Split text into words
     const splitText = (text) => {
-        return text.split(' ').map((word, i) => (
-            <span 
-                key={i} 
+        return text.split(" ").map((word, i) => (
+            <span
+                key={i}
                 className="word inline-block"
-                style={{ marginRight: '0.30em' }}
+                style={{ marginRight: "0.30em" }}
             >
                 {word}
             </span>
@@ -92,21 +115,24 @@ const FooterScreen = () => {
     };
 
     return (
-        <div className="footer-container h-[50vh] flex flex-col relative bg-[url('/images/roundarc.png')] bg-center bg-no-repeat">
+        <div className="footer-container h-[50vh] flex flex-col relative bg-[url('/images/roundarc.png')] bg-center md:bg-[length:100%] bg-[length:180%] bg-no-repeat">
             <Image
-                            className="absolute -translate-y-1/2 -translate-x-1/3"
-                            width={1000}
-                            height={1}
-                            src={"/images/ellipseoverlay.svg"}
-                            alt="kuchbhi"
-                        />
-            <div className="p-7 h-full border-t-[0.6]">
-                <div className="flex justify-between h-full">
+                className="absolute -translate-y-1/2 -translate-x-1/3"
+                width={1000}
+                height={1}
+                src={"/images/ellipseoverlay.svg"}
+                alt="kuchbhi"
+            />
+            <div className="md:p-7 p-4 h-full border-t-[0.6]">
+                <div className="flex md:flex-row flex-col justify-between h-full">
                     <div>
-                        <h4 ref={titleRef} className="text-2xl">
-                            {splitText("New Gen Services,")}<span className="font-[ppedititalic]">Modern Solutions</span>
+                        <h4 ref={titleRef} className="md:text-2xl text-xl">
+                            {splitText("New Gen Services,")}
+                            <span className="font-[ppedititalic]">
+                                Modern Solutions
+                            </span>
                         </h4>
-                        <button 
+                        <button
                             ref={buttonRef}
                             className="relative px-6 py-3 text-white bg-gradient-to-tr from-[#B586E0]/25 to-[#661CA9]/25 border border-[#CF7CFF] cursor-pointer mt-4 overflow-hidden group"
                         >
@@ -121,9 +147,14 @@ const FooterScreen = () => {
                             </span>
                         </button>
                     </div>
-                    <div className="flex flex-col justify-between">
+                    <div className="flex md:flex-col justify-between">
                         <div>
-                            <h5 ref={quickLinksRef} className="text-xl text-end">Quick Links</h5>
+                            <h5
+                                ref={quickLinksRef}
+                                className="md:text-xl text-lg md:text-end"
+                            >
+                                Quick Links
+                            </h5>
                             <div className="flex flex-col gap-0.5 mt-3">
                                 {[
                                     {
@@ -143,7 +174,7 @@ const FooterScreen = () => {
                                         key={i}
                                         href={e.link}
                                         ref={(el) => (linksRef.current[i] = el)}
-                                        className="relative overflow-hidden inline-block text-end underline group h-6"
+                                        className="relative overflow-hidden inline-block md:text-end underline group h-6"
                                     >
                                         <span className="inline-block transition-transform duration-500 ease-out group-hover:-translate-y-full">
                                             {e.text}
@@ -156,7 +187,9 @@ const FooterScreen = () => {
                             </div>
                         </div>
                         <div className="flex flex-col justify-end items-end">
-                            <h5 ref={socialsRef} className="text-xl">Socials</h5>
+                            <h5 ref={socialsRef} className="text-xl">
+                                Socials
+                            </h5>
                             <div className="flex gap-2.5 text-2xl mt-3">
                                 <div className="cursor-pointer scale-90 hover:scale-100 transition-transform duration-300">
                                     <AiFillInstagram />
@@ -172,11 +205,11 @@ const FooterScreen = () => {
                     </div>
                 </div>
             </div>
-            <div className="px-7 py-5 flex justify-between items-center border-t-[0.6] bg-[#040404]">
-                <Link 
+            <div className="md:px-7 px-4 md:py-5 py-3 flex justify-between items-center border-t-[0.6] bg-[#040404]">
+                <Link
                     ref={(el) => (bottomLinksRef.current[0] = el)}
-                    className="relative overflow-hidden inline-block group" 
-                    href={'#'}
+                    className="relative overflow-hidden inline-block group text-xs md:text-base text-center"
+                    href={"#"}
                 >
                     <span className="block leading-none transition-transform duration-500 ease-out group-hover:-translate-y-full">
                         hello@newgenservices.ai
@@ -185,10 +218,10 @@ const FooterScreen = () => {
                         hello@newgenservices.ai
                     </span>
                 </Link>
-                <Link 
+                <Link
                     ref={(el) => (bottomLinksRef.current[1] = el)}
-                    className="relative overflow-hidden inline-block group" 
-                    href={'#'}
+                    className="relative overflow-hidden inline-block group text-xs md:text-base text-center"
+                    href={"#"}
                 >
                     <span className="block leading-none transition-transform duration-500 ease-out group-hover:-translate-y-full">
                         ©2025 New Gen Services
@@ -197,10 +230,10 @@ const FooterScreen = () => {
                         ©2025 New Gen Services
                     </span>
                 </Link>
-                <Link 
+                <Link
                     ref={(el) => (bottomLinksRef.current[2] = el)}
-                    className="relative overflow-hidden inline-block group" 
-                    href={'#'}
+                    className="relative overflow-hidden inline-block group text-xs md:text-base text-center"
+                    href={"#"}
                 >
                     <span className="block leading-none transition-transform duration-500 ease-out group-hover:-translate-y-full">
                         Terms & Conditions
