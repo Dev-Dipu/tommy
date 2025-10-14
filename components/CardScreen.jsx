@@ -46,13 +46,13 @@ const CardScreen = () => {
             className="h-screen flex items-center justify-center relative"
             style={{ perspective: "2000px" }}
         >
-            {/* <Image
+            <Image
                 className="absolute scale-200 pointer-events-none"
                 width={1000}
                 height={1}
                 src={"/images/ellipseoverlay.svg"}
                 alt="kuchbhi"
-            /> */}
+            />
             <div className="md:flex gap-8">
                 <div
                     ref={card1Ref}

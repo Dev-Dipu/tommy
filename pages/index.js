@@ -23,6 +23,7 @@ export default function Home() {
     }, []);
     return (
         <div className="main font-[inter] text-white bg-[url('/images/grids.svg')] overflow-hidden">
+            <div className="fixed top-0 left-0 z-[999] h-screen w-full bg-[url('/images/noise.png')] bg-cover bg-center pointer-events-none"></div>
             <HomeScreen />
             <CardScreen />
             <DifferenceScreen />
