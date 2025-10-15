@@ -115,15 +115,16 @@ const FooterScreen = () => {
     };
 
     return (
-        <div className="footer-container h-[50vh] flex flex-col relative bg-[url('/images/roundarc.png')] bg-center md:bg-[length:100%] bg-[length:180%] bg-no-repeat">
-            <Image
+        <div className="footer-container md:h-screen h-[50vh] flex flex-col relative">
+                        <Image
                 className="absolute -translate-y-1/2 -translate-x-1/3"
                 width={1000}
                 height={1}
                 src={"/images/ellipseoverlay.svg"}
                 alt="kuchbhi"
             />
-            <div className="md:p-7 p-4 h-full border-t-[0.6]">
+            <div className="md:p-7 p-4 h-full border-t-[0.6] relative">
+            <Image className="absolute md:-bottom-20 -bottom-10 -z-10" width={2000} height={1} src={"/images/roundarc.png"} alt="roundarc" />
                 <div className="flex md:flex-row flex-col justify-between h-full">
                     <div>
                         <h4 ref={titleRef} className="md:text-2xl text-xl">

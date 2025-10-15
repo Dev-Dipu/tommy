@@ -6,6 +6,7 @@ import WonderScreen from "@/components/WonderScreen";
 import FooterScreen from "@/components/FooterScreen";
 import { useEffect } from "react";
 import LocomotiveScroll from "locomotive-scroll";
+import TextScreen from "@/components/TextScreen";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -23,8 +24,9 @@ export default function Home() {
     }, []);
     return (
         <div className="main font-[inter] text-white bg-[url('/images/grids.svg')] overflow-hidden">
-            <div className="fixed top-0 left-0 z-[999] h-screen w-full bg-[url('/images/noise.png')] bg-cover bg-center pointer-events-none"></div>
+            <div className="fixed top-0 left-0 z-[999] h-screen w-full bg-[url('/images/noise.png')] bg-cover bg-center pointer-events-none opacity-30"></div>
             <HomeScreen />
+            <TextScreen />
             <CardScreen />
             <DifferenceScreen />
             <WonderScreen />

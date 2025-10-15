@@ -3,69 +3,19 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { CgMenuRight } from "react-icons/cg";
 import Orb from "./Orb";
-import gsap from "gsap";
-
-const efficiencyWords = ["Efficiency", "Results", "Revenue", "Possibilities"];
-const costWords = ["Costs", "Time", "Effort"];
+import Image from "next/image";
 
 const HomeScreen = () => {
-    const [effIndex, setEffIndex] = useState(0);
-    const [costIndex, setCostIndex] = useState(0);
-    const effRef = useRef(null);
-    const costRef = useRef(null);
-
-    // Calculate max width for both word arrays
-    const effMaxWidth = Math.max(...efficiencyWords.map(w => w.length));
-    const costMaxWidth = Math.max(...costWords.map(w => w.length));
-
-    // Reduce the width multiplier for a less wide animation container
-    const effMinWidth = Math.ceil(effMaxWidth * 0.68);
-    const costMinWidth = Math.ceil(costMaxWidth * 0.68);
-
-    useEffect(() => {
-        const effTimeline = gsap.timeline({ repeat: -1, repeatDelay: 1.1 });
-        effTimeline
-            .to(effRef.current, {
-                y: -24,
-                opacity: 0,
-                duration: 0.5,
-                ease: "power1.in",
-                onComplete: () => {
-                    setEffIndex(prev => (prev + 1) % efficiencyWords.length);
-                }
-            })
-            .fromTo(
-                effRef.current,
-                { y: 24, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.5, ease: "power1.out" }
-            );
-
-        const costTimeline = gsap.timeline({ repeat: -1, repeatDelay: 1.1 });
-        costTimeline
-            .to(costRef.current, {
-                y: -24,
-                opacity: 0,
-                duration: 0.5,
-                ease: "power1.in",
-                onComplete: () => {
-                    setCostIndex(prev => (prev + 1) % costWords.length);
-                }
-            })
-            .fromTo(
-                costRef.current,
-                { y: 24, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.5, ease: "power1.out" }
-            );
-
-        return () => {
-            effTimeline.kill();
-            costTimeline.kill();
-        };
-    }, []);
-
+    
     return (
         <div className="min-h-screen flex flex-col items-center relative">
-            <div className="bggradient absolute bg-[url('/images/overlay.png')] bg-center md:bg-[length:120%] md:top-1/2 left-1/2 -translate-x-1/2 md:-translate-y-[60%] -translate-y-1/5 md:w-4/5 w-full md:h-4/5 h-full bg-no-repeat"></div>
+            <Image
+                            className="absolute scale-200"
+                            width={1000}
+                            height={1}
+                            src={"/images/ellipseoverlay.svg"}
+                            alt="kuchbhi"
+                        />
 
             <header className="w-full flex justify-between text-lg p-7">
                 <h1 className="select-none">Logo</h1>
@@ -93,67 +43,25 @@ const HomeScreen = () => {
                 <span className="font-[ppedititalic]">Businesses </span>with AI,
                 Digital Innovation & Media
             </h2>
-
-            <div className="md:scale-100 scale-90" style={{ width: "100%", height: "450px", position: "relative" }}>
+            <div className="h-[460px]">
+                <div className="absolute w-1/3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/5 mix-blend-screen hue-rotate-[270deg] md:scale-100 scale-250">
+                <video className="" src="https://sheryians.com/Assets/images/companies/9cccea11555caca1079e3c3eacea2b13_720w.mp4" muted loop autoPlay />
+            </div>
+            </div>
+            {/* <div className="md:scale-100 scale-90" style={{ width: "100%", height: "450px", position: "relative" }}>
                 <Orb
                     hoverIntensity={0}
                     rotateOnHover={true}
                     hue={0}
                     forceHoverState={false}
                 />
-            </div>
+            </div> */}
 
             <p className="md:w-[28%] w-3/5 text-center">
                 Modern solutions for and creators who want to grow, stand out, and
                 save time.
             </p>
-            <h3 className="md:w-3/5 w-4/5 md:text-3xl text-center my-36">
-                We leverage AI to achieve more{" "}
-                <span
-                    className="italic font-[ppeultraitalic] relative inline-block overflow-hidden align-baseline"
-                    style={{
-                        height: "1.2em",
-                        verticalAlign: "middle",
-                        minWidth: `${effMinWidth}ch`, // reduced width
-                        display: "inline-block"
-                    }}
-                >
-                    <span
-                        ref={effRef}
-                        style={{
-                            display: "inline-block",
-                            width: "100%",
-                            textAlign: "center"
-                        }}
-                        className="font-semibold"
-                    >
-                        {efficiencyWords[effIndex]}
-                    </span>
-                </span>{" "}
-                with less{" "}
-                <span
-                    className="italic font-[ppeultraitalic] relative inline-block overflow-hidden align-baseline"
-                    style={{
-                        height: "1.2em",
-                        verticalAlign: "middle",
-                        minWidth: `${costMinWidth}ch`, // reduced width
-                        display: "inline-block"
-                    }}
-                >
-                    <span
-                        ref={costRef}
-                        style={{
-                            display: "inline-block",
-                            width: "100%",
-                            textAlign: "center"
-                        }}
-                        className="font-semibold"
-                    >
-                        {costWords[costIndex]}
-                    </span>
-                </span>{" "}
-                and empower creators to focus on what really matters.
-            </h3>
+            
         </div>
     );
 };
