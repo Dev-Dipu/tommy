@@ -45,7 +45,7 @@ const HomeScreen = () => {
             </h2>
             <div className="h-[460px]">
                 <div className="absolute w-1/3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/5 mix-blend-screen hue-rotate-[270deg] md:scale-100 scale-250">
-                <video className="" src="https://sheryians.com/Assets/images/companies/9cccea11555caca1079e3c3eacea2b13_720w.mp4" muted loop autoPlay />
+                <video className="" src="/0vid.mp4" muted loop autoPlay />
             </div>
             </div>
             {/* <div className="md:scale-100 scale-90" style={{ width: "100%", height: "450px", position: "relative" }}>

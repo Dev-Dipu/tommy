@@ -115,7 +115,7 @@ const FooterScreen = () => {
     };
 
     return (
-        <div className="footer-container md:h-screen h-[50vh] flex flex-col relative">
+        <div className="footer-container h-screen flex flex-col relative">
                         <Image
                 className="absolute -translate-y-1/2 -translate-x-1/3"
                 width={1000}
@@ -126,8 +126,8 @@ const FooterScreen = () => {
             <div className="md:p-7 p-4 h-full border-t-[0.6] relative">
             <Image className="absolute md:-bottom-20 -bottom-10 -z-10" width={2000} height={1} src={"/images/roundarc.png"} alt="roundarc" />
                 <div className="flex md:flex-row flex-col justify-between h-full">
-                    <div>
-                        <h4 ref={titleRef} className="md:text-2xl text-xl">
+                    <div className="flex flex-col md:items-start items-center md:gap-0 gap-5">
+                        <h4 ref={titleRef} className="md:text-2xl text-xl md:text-start text-center md:w-full w-2/3">
                             {splitText("New Gen Services,")}
                             <span className="font-[ppedititalic]">
                                 Modern Solutions
@@ -135,7 +135,7 @@ const FooterScreen = () => {
                         </h4>
                         <button
                             ref={buttonRef}
-                            className="relative px-6 py-3 text-white bg-gradient-to-tr from-[#B586E0]/25 to-[#661CA9]/25 border border-[#CF7CFF] cursor-pointer mt-4 overflow-hidden group"
+                            className="relative px-6 py-3 text-white bg-gradient-to-tr from-[#B586E0]/25 to-[#661CA9]/25 border border-[#CF7CFF] cursor-pointer mt-4 overflow-hidden group w-fit"
                         >
                             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
                             <span className="relative block overflow-hidden h-6">
