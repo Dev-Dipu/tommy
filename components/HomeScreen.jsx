@@ -43,19 +43,19 @@ const HomeScreen = () => {
                 <span className="font-[ppedititalic]">Businesses </span>with AI,
                 Digital Innovation & Media
             </h2>
-            <div className="h-[460px]">
+            {/* <div className="h-[460px]">
                 <div className="absolute w-1/3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/5 mix-blend-screen hue-rotate-[270deg] md:scale-100 scale-250">
                 <video className="" src="/0vid.mp4" muted loop autoPlay />
             </div>
-            </div>
-            {/* <div className="md:scale-100 scale-90" style={{ width: "100%", height: "450px", position: "relative" }}>
+            </div> */}
+            <div className="md:scale-100 scale-90" style={{ width: "100%", height: "450px", position: "relative" }}>
                 <Orb
                     hoverIntensity={0}
                     rotateOnHover={true}
                     hue={0}
                     forceHoverState={false}
                 />
-            </div> */}
+            </div>
 
             <p className="md:w-[28%] w-3/5 text-center">
                 Modern solutions for and creators who want to grow, stand out, and

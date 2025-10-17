@@ -57,9 +57,6 @@ const CardScreen = () => {
                 <div
                     ref={card1Ref}
                     className="card1 group relative flex items-center justify-center w-full h-full bg-no-repeat bg-center bg-[length:40%] md:scale-100 scale-90"
-                    style={{
-                        backgroundImage: "url('./images/cardbgDesign.svg')",
-                    }}
                 >
                     <img
                         src="./images/servicescard.svg"
@@ -117,9 +114,6 @@ const CardScreen = () => {
                 <div
                     ref={card2Ref}
                     className="card2 group relative flex items-center justify-center w-full h-full bg-no-repeat bg-center bg-[length:40%] md:scale-100 scale-90"
-                    style={{
-                        backgroundImage: "url('./images/cardbgDesign.svg')",
-                    }}
                 >
                     <img
                         src="./images/servicescard.svg"

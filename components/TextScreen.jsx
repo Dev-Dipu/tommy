@@ -1,19 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import Image from "next/image";
 
 const efficiencyWords = ["Efficiency", "Results", "Revenue", "Possibilities"];
 const costWords = ["Costs", "Time", "Effort"];
 
 const TextScreen = () => {
-
     const [effIndex, setEffIndex] = useState(0);
     const [costIndex, setCostIndex] = useState(0);
     const effRef = useRef(null);
     const costRef = useRef(null);
 
     // Calculate max width for both word arrays
-    const effMaxWidth = Math.max(...efficiencyWords.map(w => w.length));
-    const costMaxWidth = Math.max(...costWords.map(w => w.length));
+    const effMaxWidth = Math.max(...efficiencyWords.map((w) => w.length));
+    const costMaxWidth = Math.max(...costWords.map((w) => w.length));
 
     // Reduce the width multiplier for a less wide animation container
     const effMinWidth = Math.ceil(effMaxWidth * 0.68);
@@ -28,8 +28,8 @@ const TextScreen = () => {
                 duration: 0.5,
                 ease: "power1.in",
                 onComplete: () => {
-                    setEffIndex(prev => (prev + 1) % efficiencyWords.length);
-                }
+                    setEffIndex((prev) => (prev + 1) % efficiencyWords.length);
+                },
             })
             .fromTo(
                 effRef.current,
@@ -45,8 +45,8 @@ const TextScreen = () => {
                 duration: 0.5,
                 ease: "power1.in",
                 onComplete: () => {
-                    setCostIndex(prev => (prev + 1) % costWords.length);
-                }
+                    setCostIndex((prev) => (prev + 1) % costWords.length);
+                },
             })
             .fromTo(
                 costRef.current,
@@ -60,9 +60,16 @@ const TextScreen = () => {
         };
     }, []);
 
-  return (
-    <div className='h-screen text-white flex items-center justify-center'>
-        <h3 className="md:w-3/5 w-4/5 md:text-3xl text-center my-36">
+    return (
+        <div className="relative h-screen text-white flex items-center justify-center">
+            <Image
+                className="absolute scale-200"
+                width={1000}
+                height={1}
+                src={"/images/ellipseoverlay.svg"}
+                alt="kuchbhi"
+            />
+            <h3 className="md:w-3/5 w-4/5 md:text-3xl text-center my-36">
                 We leverage AI to achieve more{" "}
                 <span
                     className="italic font-[ppeultraitalic] relative inline-block overflow-hidden align-baseline"
@@ -70,7 +77,7 @@ const TextScreen = () => {
                         height: "1.2em",
                         verticalAlign: "middle",
                         minWidth: `${effMinWidth}ch`, // reduced width
-                        display: "inline-block"
+                        display: "inline-block",
                     }}
                 >
                     <span
@@ -78,7 +85,7 @@ const TextScreen = () => {
                         style={{
                             display: "inline-block",
                             width: "100%",
-                            textAlign: "center"
+                            textAlign: "center",
                         }}
                         className="font-semibold"
                     >
@@ -92,7 +99,7 @@ const TextScreen = () => {
                         height: "1.2em",
                         verticalAlign: "middle",
                         minWidth: `${costMinWidth}ch`, // reduced width
-                        display: "inline-block"
+                        display: "inline-block",
                     }}
                 >
                     <span
@@ -100,7 +107,7 @@ const TextScreen = () => {
                         style={{
                             display: "inline-block",
                             width: "100%",
-                            textAlign: "center"
+                            textAlign: "center",
                         }}
                         className="font-semibold"
                     >
@@ -109,8 +116,8 @@ const TextScreen = () => {
                 </span>{" "}
                 and empower creators to focus on what really matters.
             </h3>
-    </div>
-  )
-}
+        </div>
+    );
+};
 
-export default TextScreen
+export default TextScreen;
