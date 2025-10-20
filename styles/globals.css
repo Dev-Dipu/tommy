@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -63,6 +64,22 @@
   font-family: ppeultraitalic;
   src: url('/fonts/ppultralight.otf');
 }
+
+@font-face {
+  font-family: poppin;
+  src: url('/fonts/poppinreg.woff2');
+}
+
+@font-face {
+  font-family: poppinsemi;
+  src: url('/fonts/poppinsemi.woff2');
+}
+
+@font-face {
+  font-family: poppinmed;
+  src: url('/fonts/poppinmed.woff2');
+}
+
 
 
 @theme inline {

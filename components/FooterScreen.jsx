@@ -116,37 +116,24 @@ const FooterScreen = () => {
 
     return (
         <div className="footer-container h-screen flex flex-col relative">
-                        <Image
-                className="absolute -translate-y-1/2 -translate-x-1/3"
-                width={1000}
-                height={1}
-                src={"/images/ellipseoverlay.svg"}
-                alt="kuchbhi"
-            />
+                    
             <div className="md:p-7 p-4 h-full border-t-[0.6] relative">
-            <Image className="absolute md:-bottom-20 -bottom-10 -z-10" width={2000} height={1} src={"/images/roundarc.png"} alt="roundarc" />
                 <div className="flex md:flex-row flex-col justify-between h-full">
                     <div className="flex flex-col md:items-start items-center md:gap-0 gap-5">
-                        <h4 ref={titleRef} className="md:text-2xl text-xl md:text-start text-center md:w-full w-2/3">
-                            {splitText("New Gen Services,")}
-                            <span className="font-[ppedititalic]">
-                                Modern Solutions
-                            </span>
+                        <h4 ref={titleRef} className="md:text-2xl text-xl md:text-start text-center w-2/3">
+                            {splitText("New Gen Services, Modern Solutions")}
                         </h4>
-                        <button
-                            ref={buttonRef}
-                            className="relative px-6 py-3 text-white bg-gradient-to-tr from-[#B586E0]/25 to-[#661CA9]/25 border border-[#CF7CFF] cursor-pointer mt-4 overflow-hidden group w-fit"
-                        >
-                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
-                            <span className="relative block overflow-hidden h-6">
-                                <span className="block transition-transform duration-500 ease-out group-hover:-translate-y-full">
-                                    book a meeting
-                                </span>
-                                <span className="absolute left-0 top-0 w-full block translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
-                                    book a meeting
-                                </span>
-                            </span>
-                        </button>
+                        <button className="group relative px-4 py-2 text-black bg-white cursor-pointer w-36 overflow-hidden group h-[40px] rounded-[6px] text-sm font-[poppinmed] md:absolute md:top-1/2 md:left-1/2 md:-translate-1/2">
+                                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
+                                    <div className="relative h-full overflow-hidden">
+                                        <span className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out group-hover:-translate-y-full">
+                                            Book Meeting
+                                        </span>
+                                        <span className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
+                                            Book Meeting
+                                        </span>
+                                    </div>
+                                </button>
                     </div>
                     <div className="flex md:flex-col justify-between">
                         <div>

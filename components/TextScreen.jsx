@@ -43,6 +43,7 @@ const TextScreen = () => {
                 y: -24,
                 opacity: 0,
                 duration: 0.5,
+                delay: 0.25,
                 ease: "power1.in",
                 onComplete: () => {
                     setCostIndex((prev) => (prev + 1) % costWords.length);
@@ -63,13 +64,13 @@ const TextScreen = () => {
     return (
         <div className="relative h-screen text-white flex items-center justify-center">
             <Image
-                className="absolute scale-200"
+                className="absolute -z-10 top-1/2 -translate-y-1/2 md:scale-150 scale-200"
                 width={1000}
                 height={1}
-                src={"/images/ellipseoverlay.svg"}
+                src={"/images/purpleoverlay.svg"}
                 alt="kuchbhi"
             />
-            <h3 className="md:w-3/5 w-4/5 md:text-3xl text-center my-36">
+            <h3 className="font-[poppinmed] md:w-2/5 w-4/5 md:text-3xl text-center my-36">
                 We leverage AI to achieve more{" "}
                 <span
                     className="italic font-[ppeultraitalic] relative inline-block overflow-hidden align-baseline"

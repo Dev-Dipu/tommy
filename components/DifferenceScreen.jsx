@@ -86,15 +86,15 @@ const DifferenceScreen = () => {
       style={{ perspective: "2000px" }}
     >
        <Image
-                      className="absolute scale-200"
-                      width={1000}
-                      height={1}
-                      src={"/images/ellipseoverlay.svg"}
-                      alt="kuchbhi"
-                  />
+                       className="absolute -z-10 top-1/2 -translate-y-1/2 md:scale-150 scale-200"
+                       width={1000}
+                       height={1}
+                       src={"/images/purpleoverlay.svg"}
+                       alt="kuchbhi"
+                   />
       {/* Heading */}
       <h3 className="md:text-3xl text-xl text-center font-semibold">
-        This is how we are <span className="font-[ppedititalic] font-medium">making a</span>
+        This is how we are <span className="font-[ppedititalic] font-medium">making a </span>
       </h3>
 
       {/* Cards Container */}
