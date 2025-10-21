@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import SpotlightCard from "./SpotlightCard";
+import OverlayGlow from "./OverlayGlow";
 
 const CardScreen = () => {
   const card1Ref = useRef(null);
@@ -16,13 +17,7 @@ const CardScreen = () => {
       className="h-screen font-[poppinmed] flex flex-col gap-16 items-center justify-center relative px-4"
       style={{ perspective: "2000px" }}
     >
-      <Image
-        className="absolute -z-10 top-1/2 -translate-y-1/2 md:scale-150 scale-200"
-        width={1000}
-        height={1}
-        src={"/images/purpleoverlay.svg"}
-        alt="kuchbhi"
-      />
+      <OverlayGlow />
 
       <h3 className="md:text-3xl text-lg text-center md:w-[70%] w-full leading-snug">
         Whether you need AI in your{" "}

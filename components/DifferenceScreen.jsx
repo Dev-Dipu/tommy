@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import OverlayGlow from "./OverlayGlow";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,13 +86,7 @@ const DifferenceScreen = () => {
       className="h-screen flex flex-col items-center justify-center gap-20 text-white pointer-events-none"
       style={{ perspective: "2000px" }}
     >
-       <Image
-                       className="absolute -z-10 top-1/2 -translate-y-1/2 md:scale-150 scale-200"
-                       width={1000}
-                       height={1}
-                       src={"/images/purpleoverlay.svg"}
-                       alt="kuchbhi"
-                   />
+       <OverlayGlow />
       {/* Heading */}
       <h3 className="md:text-3xl text-xl text-center font-semibold">
         This is how we are <span className="font-[ppedititalic] font-medium">making a difference</span>

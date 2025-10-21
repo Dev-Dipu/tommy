@@ -6,7 +6,6 @@ import { FaTwitter } from "react-icons/fa6";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -16,6 +15,9 @@ const FooterScreen = () => {
     const quickLinksRef = useRef(null);
     const linksRef = useRef([]);
     const socialsRef = useRef(null);
+    const socialIconsRef = useRef([]);
+    const emailRef = useRef(null);
+    const bigTitleRef = useRef(null);
     const bottomLinksRef = useRef([]);
 
     useGSAP(() => {
@@ -54,6 +56,17 @@ const FooterScreen = () => {
             0.2
         );
 
+        // Email animation
+        tl.from(
+            emailRef.current,
+            {
+                x: -30,
+                opacity: 0,
+                ease: "power2.out",
+            },
+            0.3
+        );
+
         // Quick Links heading
         tl.from(
             quickLinksRef.current,
@@ -69,7 +82,7 @@ const FooterScreen = () => {
         tl.from(
             linksRef.current,
             {
-                x: 30,
+                x: -30,
                 opacity: 0,
                 stagger: 0.08,
                 ease: "power2.out",
@@ -77,7 +90,7 @@ const FooterScreen = () => {
             0.25
         );
 
-        // Socials heading
+        // Socials heading and icons
         tl.from(
             socialsRef.current,
             {
@@ -86,6 +99,29 @@ const FooterScreen = () => {
                 ease: "power2.out",
             },
             0.3
+        );
+
+        tl.from(
+            socialIconsRef.current,
+            {
+                scale: 0,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "back.out(1.7)",
+            },
+            0.4
+        );
+
+        // Big title animation
+        tl.from(
+            bigTitleRef.current,
+            {
+                y: 60,
+                opacity: 0,
+                scale: 0.95,
+                ease: "power2.out",
+            },
+            0.5
         );
 
         // Bottom links
@@ -97,7 +133,7 @@ const FooterScreen = () => {
                 stagger: 0.1,
                 ease: "power2.out",
             },
-            0.5
+            0.6
         );
     }, []);
 
@@ -115,101 +151,136 @@ const FooterScreen = () => {
     };
 
     return (
-        <div className="footer-container h-screen flex flex-col relative">
-                    
-            <div className="md:p-7 p-4 h-full border-t-[0.6] relative">
-                <div className="flex md:flex-row flex-col justify-between h-full">
-                    <div className="flex flex-col md:items-start items-center md:gap-0 gap-5">
-                        <h4 ref={titleRef} className="md:text-2xl text-xl md:text-start text-center w-2/3">
+        <div className="footer-container min-h-screen flex flex-col relative bg-gradient-to-b from-[#1a0a2e] via-[#2d1b4e] to-[#4a2d6e]">
+            {/* Top Section */}
+            <div className="md:p-8 p-5 flex-1">
+                {/* Top Row */}
+                <div className="flex md:flex-row flex-col justify-between items-start md:items-center gap-6 mb-12">
+                    <div className="flex flex-col gap-4 w-full md:w-auto">
+                        <h4
+                            ref={titleRef}
+                            className="md:text-2xl text-xl text-white w-2/3"
+                        >
                             {splitText("New Gen Services, Modern Solutions")}
                         </h4>
-                        <button className="group relative px-4 py-2 text-black bg-white cursor-pointer w-36 overflow-hidden group h-[40px] rounded-[6px] text-sm font-[poppinmed] md:absolute md:top-1/2 md:left-1/2 md:-translate-1/2">
-                                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
-                                    <div className="relative h-full overflow-hidden">
-                                        <span className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out group-hover:-translate-y-full">
-                                            Book Meeting
-                                        </span>
-                                        <span className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
-                                            Book Meeting
-                                        </span>
-                                    </div>
-                                </button>
+                        <button
+                    ref={buttonRef}
+                    className="group mt-5 relative px-4 py-2 text-black bg-white cursor-pointer w-36 overflow-hidden h-[40px] rounded-[6px] text-sm font-[poppinmed]"
+                >
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
+                    <div className="relative h-full overflow-hidden">
+                        <span className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out group-hover:-translate-y-full">
+                            Book Meeting
+                        </span>
+                        <span className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
+                            Book Meeting
+                        </span>
                     </div>
-                    <div className="flex md:flex-col justify-between">
-                        <div>
-                            <h5
-                                ref={quickLinksRef}
-                                className="md:text-xl text-lg md:text-end"
-                            >
-                                Quick Links
-                            </h5>
-                            <div className="flex flex-col gap-0.5 mt-3">
-                                {[
-                                    {
-                                        text: "Services",
-                                        link: "#",
-                                    },
-                                    {
-                                        text: "About us",
-                                        link: "#",
-                                    },
-                                    {
-                                        text: "Impact",
-                                        link: "#",
-                                    },
-                                ].map((e, i) => (
-                                    <Link
-                                        key={i}
-                                        href={e.link}
-                                        ref={(el) => (linksRef.current[i] = el)}
-                                        className="relative overflow-hidden inline-block md:text-end underline group h-6"
-                                    >
-                                        <span className="inline-block transition-transform duration-500 ease-out group-hover:-translate-y-full">
-                                            {e.text}
-                                        </span>
-                                        <span className="absolute left-0 top-0 w-full inline-block translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
-                                            {e.text}
-                                        </span>
-                                    </Link>
-                                ))}
-                            </div>
+                </button>
+                    </div>
+
+                    <div className="flex flex-col md:items-end gap-4">
+                        <h5
+                            ref={quickLinksRef}
+                            className="md:text-xl text-lg text-white font-medium"
+                        >
+                            Quick Links
+                        </h5>
+                        <div className="flex md:flex-col flex-row gap-3 md:gap-1">
+                            {[
+                                { text: "Services", link: "#" },
+                                { text: "About us", link: "#" },
+                                { text: "Impact", link: "#" },
+                            ].map((e, i) => (
+                                <Link
+                                    key={i}
+                                    href={e.link}
+                                    ref={(el) => (linksRef.current[i] = el)}
+                                    className="relative overflow-hidden inline-block md:text-end text-white group h-6"
+                                >
+                                    <span className="inline-block transition-transform duration-500 ease-out group-hover:-translate-y-full">
+                                        {e.text}
+                                    </span>
+                                    <span className="absolute left-0 md:right-0 md:left-auto top-0 w-full inline-block translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
+                                        {e.text}
+                                    </span>
+                                </Link>
+                            ))}
                         </div>
-                        <div className="flex flex-col justify-end items-end">
-                            <h5 ref={socialsRef} className="text-xl">
-                                Socials
-                            </h5>
-                            <div className="flex gap-2.5 text-2xl mt-3">
-                                <div className="cursor-pointer scale-90 hover:scale-100 transition-transform duration-300">
-                                    <AiFillInstagram />
-                                </div>
-                                <div className="cursor-pointer scale-90 hover:scale-100 transition-transform duration-300">
-                                    <AiFillFacebook />
-                                </div>
-                                <div className="cursor-pointer scale-90 hover:scale-100 transition-transform duration-300">
-                                    <FaTwitter />
-                                </div>
+                    </div>
+                </div>
+
+                {/* Middle Row */}
+                <div className="flex md:flex-row flex-col justify-between items-start md:items-end gap-6 mb-8">
+                    <Link
+                        ref={emailRef}
+                        className="relative overflow-hidden inline-block group text-lg md:text-xl text-white"
+                        href="mailto:hello@newgenservices.ai"
+                    >
+                        <span className="block leading-none transition-transform duration-500 ease-out group-hover:-translate-y-full">
+                            hello@newgenservices.ai
+                        </span>
+                        <span className="absolute left-0 top-0 w-full block leading-none translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
+                            hello@newgenservices.ai
+                        </span>
+                    </Link>
+
+                    <div className="flex flex-col md:items-end gap-3">
+                        <h5 ref={socialsRef} className="text-lg text-white font-medium">
+                            Socials
+                        </h5>
+                        <div className="flex gap-3 text-2xl">
+                            <div
+                                ref={(el) => (socialIconsRef.current[0] = el)}
+                                className="cursor-pointer text-white scale-90 hover:scale-110 transition-transform duration-300"
+                            >
+                                <AiFillInstagram />
+                            </div>
+                            <div
+                                ref={(el) => (socialIconsRef.current[1] = el)}
+                                className="cursor-pointer text-white scale-90 hover:scale-110 transition-transform duration-300"
+                            >
+                                <AiFillFacebook />
+                            </div>
+                            <div
+                                ref={(el) => (socialIconsRef.current[2] = el)}
+                                className="cursor-pointer text-white scale-90 hover:scale-110 transition-transform duration-300"
+                            >
+                                <FaTwitter />
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {/* Big Title */}
+                <div className="flex justify-center items-center py-8 md:py-12">
+                    <h1
+                        ref={bigTitleRef}
+                        className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white text-center leading-none"
+                    >
+                        New Gen Services
+                    </h1>
+                </div>
             </div>
-            <div className="md:px-7 px-4 md:py-5 py-3 flex justify-between items-center border-t-[0.6] bg-[#040404]">
+
+            {/* Bottom Bar */}
+            <div className="px-5 md:px-8 py-4 md:py-5 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 border-t border-purple-500/30 bg-[#2d1b4e]/50 backdrop-blur-sm">
                 <Link
                     ref={(el) => (bottomLinksRef.current[0] = el)}
-                    className="relative overflow-hidden inline-block group text-xs md:text-base text-center"
-                    href={"#"}
+                    className="relative overflow-hidden inline-block group text-xs md:text-sm text-white/80 hover:text-white"
+                    href="#"
                 >
                     <span className="block leading-none transition-transform duration-500 ease-out group-hover:-translate-y-full">
-                        hello@newgenservices.ai
+                        ©2025 New Gen Services
                     </span>
                     <span className="absolute left-0 top-0 w-full block leading-none translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
-                        hello@newgenservices.ai
+                        ©2025 New Gen Services
                     </span>
                 </Link>
                 <Link
                     ref={(el) => (bottomLinksRef.current[1] = el)}
-                    className="relative overflow-hidden inline-block group text-xs md:text-base text-center"
-                    href={"#"}
+                    className="relative overflow-hidden inline-block group text-xs md:text-sm text-white/80 hover:text-white"
+                    href="#"
                 >
                     <span className="block leading-none transition-transform duration-500 ease-out group-hover:-translate-y-full">
                         ©2025 New Gen Services
@@ -220,8 +291,8 @@ const FooterScreen = () => {
                 </Link>
                 <Link
                     ref={(el) => (bottomLinksRef.current[2] = el)}
-                    className="relative overflow-hidden inline-block group text-xs md:text-base text-center"
-                    href={"#"}
+                    className="relative overflow-hidden inline-block group text-xs md:text-sm text-white/80 hover:text-white"
+                    href="#"
                 >
                     <span className="block leading-none transition-transform duration-500 ease-out group-hover:-translate-y-full">
                         Terms & Conditions

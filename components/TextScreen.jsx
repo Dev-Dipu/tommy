@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
+import OverlayGlow from "./OverlayGlow";
 
 const efficiencyWords = ["Efficiency", "Results", "Revenue", "Possibilities"];
 const costWords = ["Costs", "Time", "Effort"];
@@ -63,13 +64,7 @@ const TextScreen = () => {
 
     return (
         <div className="relative h-screen text-white flex items-center justify-center">
-            <Image
-                className="absolute -z-10 top-1/2 -translate-y-1/2 md:scale-150 scale-200"
-                width={1000}
-                height={1}
-                src={"/images/purpleoverlay.svg"}
-                alt="kuchbhi"
-            />
+            <OverlayGlow />
             <h3 className="font-[poppinmed] md:w-2/5 w-4/5 md:text-3xl text-center my-36">
                 We leverage AI to achieve more{" "}
                 <span

@@ -1,48 +1,15 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Link from "next/link";
 import { CgMenuRight } from "react-icons/cg";
 import Orb from "./Orb";
-import gsap from "gsap";
+import OverlayGlow from "./OverlayGlow";
 
 const HomeScreen = () => {
-  const overlayRef = useRef(null);
-
-  useEffect(() => {
-    // Create a subtle floating + pulsating animation
-    gsap.to(overlayRef.current, {
-      x: "+=60",
-      y: "+=30",
-      scale: 1.6,
-      rotation: 5,
-      duration: 4,
-      ease: "sine.inOut",
-      yoyo: true,
-      repeat: -1,
-    });
-
-    // Add a slow random glow/pulse effect
-    gsap.to(overlayRef.current, {
-      boxShadow: "0 0 120px rgba(155,0,255,0.6), 0 0 200px rgba(128,0,255,0.4)",
-      duration: 2.5,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-    });
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col items-center relative overflow-hidden">
-      {/* Purple Blob */}
-      <div
-        ref={overlayRef}
-        className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
-        style={{
-          background: "radial-gradient(circle at center, rgba(155,0,255,0.6), rgba(75,0,130,0.4))",
-          filter: "blur(180px)",
-          mixBlendMode: "screen",
-        }}
-      />
+      {/* Reusable overlay */}
+      <OverlayGlow />
 
       {/* Navbar */}
       <header
@@ -81,7 +48,7 @@ const HomeScreen = () => {
         <CgMenuRight className="text-2xl md:hidden text-white" />
       </header>
 
-      {/* Hero */}
+      {/* Hero Section */}
       <h2 className="md:text-4xl text-xl text-center md:w-1/2 w-[90%] mt-14 font-[poppinmed] text-white">
         Powering the future of <span className="font-[ppedititalic]">Businesses </span>
         with AI, Digital Innovation & Media
