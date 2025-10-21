@@ -14,6 +14,10 @@ const OverlayGlow = ({
   useEffect(() => {
     if (!overlayRef.current) return;
 
+    // Check if not mobile
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (isMobile) return;
+
     // Floating and pulsating animation
     gsap.to(overlayRef.current, {
       x: "+=60",

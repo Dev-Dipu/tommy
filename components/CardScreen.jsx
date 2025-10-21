@@ -30,7 +30,7 @@ const CardScreen = () => {
       <div className="flex md:flex-row flex-col items-center justify-center gap-8 md:h-1/2 h-2/3 w-full md:w-2/5">
         {/* Card 1 */}
         <SpotlightCard
-          className="custom-spotlight-card h-full md:w-1/2 w-[85%] md:scale-100 scale-95"
+          className="custom-spotlight-card h-full md:w-1/2 w-3/5 md:scale-100 scale-95"
           spotlightColor="#7726c1"
         >
           <div
@@ -45,7 +45,7 @@ const CardScreen = () => {
                 ref={card1BtnRef}
                 className="absolute w-full flex gap-[7px] bottom-0"
               >
-                <button className="group relative px-4 py-2 text-black bg-white cursor-pointer w-full overflow-hidden group h-[44px] rounded-[6px]">
+                <button className="group relative px-4 py-2 text-black bg-white cursor-pointer w-full overflow-hidden group h-[40px] rounded-[6px]">
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
                   <div className="relative h-full overflow-hidden">
                     <span className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out group-hover:-translate-y-full">
@@ -63,7 +63,7 @@ const CardScreen = () => {
 
         {/* Card 2 */}
         <SpotlightCard
-          className="custom-spotlight-card h-full md:w-1/2 w-[85%] md:scale-100 scale-95"
+          className="custom-spotlight-card h-full md:w-1/2 w-3/5 md:scale-100 scale-95"
           spotlightColor="#7726c1"
         >
           <div
@@ -78,7 +78,7 @@ const CardScreen = () => {
                 ref={card2BtnRef}
                 className="absolute w-full flex gap-[7px] bottom-0"
               >
-                <button className="group relative px-4 py-2 text-black bg-white cursor-pointer w-full overflow-hidden group h-[44px] rounded-[6px]">
+                <button className="group relative px-4 py-2 text-black bg-white cursor-pointer w-full overflow-hidden group h-[40px] rounded-[6px]">
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
                   <div className="relative h-full overflow-hidden">
                     <span className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out group-hover:-translate-y-full">

@@ -24,8 +24,19 @@ export default function Home() {
     const sectionsRef = useRef([]);
     const currentSection = useRef(0);
     const isScrolling = useRef(false);
-
     useEffect(() => {
+        const handleResize = () => {
+            window.location.reload();
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    
+    useEffect(() => {
+
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (isMobile) return;
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
     // --- throttle helper ---
