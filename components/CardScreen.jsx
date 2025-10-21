@@ -1,6 +1,7 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
 import SpotlightCard from "./SpotlightCard";
 import OverlayGlow from "./OverlayGlow";
 
@@ -11,6 +12,60 @@ const CardScreen = () => {
   const card2TitleRef = useRef(null);
   const card1BtnRef = useRef(null);
   const card2BtnRef = useRef(null);
+  const glow1Ref = useRef(null);
+  const glow2Ref = useRef(null);
+
+  useEffect(() => {
+    // Animate glow stroke for card 1
+    if (glow1Ref.current) {
+      gsap.to(glow1Ref.current, {
+        boxShadow: "0 0 0 2px transparent, 4px -4px 12px rgba(119, 38, 193, 0.8), -4px 4px 12px transparent",
+        duration: 0.75,
+        repeat: -1,
+        yoyo: false,
+        ease: "linear",
+        onRepeat: function() {
+          const shadows = [
+            "0 0 0 2px transparent, -4px -4px 12px rgba(119, 38, 193, 0.8), 4px 4px 12px transparent",
+            "0 0 0 2px transparent, 4px -4px 12px rgba(119, 38, 193, 0.8), -4px 4px 12px transparent",
+            "0 0 0 2px transparent, 4px 4px 12px rgba(119, 38, 193, 0.8), -4px -4px 12px transparent",
+            "0 0 0 2px transparent, -4px 4px 12px rgba(119, 38, 193, 0.8), 4px -4px 12px transparent"
+          ];
+          const currentIteration = Math.floor(this.totalTime() / 0.75) % shadows.length;
+          gsap.to(glow1Ref.current, {
+            boxShadow: shadows[(currentIteration + 1) % shadows.length],
+            duration: 0.75,
+            ease: "linear"
+          });
+        }
+      });
+    }
+
+    // Animate glow stroke for card 2
+    if (glow2Ref.current) {
+      gsap.to(glow2Ref.current, {
+        boxShadow: "0 0 0 2px transparent, 4px -4px 12px rgba(119, 38, 193, 0.8), -4px 4px 12px transparent",
+        duration: 0.75,
+        repeat: -1,
+        yoyo: false,
+        ease: "linear",
+        onRepeat: function() {
+          const shadows = [
+            "0 0 0 2px transparent, -4px -4px 12px rgba(119, 38, 193, 0.8), 4px 4px 12px transparent",
+            "0 0 0 2px transparent, 4px -4px 12px rgba(119, 38, 193, 0.8), -4px 4px 12px transparent",
+            "0 0 0 2px transparent, 4px 4px 12px rgba(119, 38, 193, 0.8), -4px -4px 12px transparent",
+            "0 0 0 2px transparent, -4px 4px 12px rgba(119, 38, 193, 0.8), 4px -4px 12px transparent"
+          ];
+          const currentIteration = Math.floor(this.totalTime() / 0.75) % shadows.length;
+          gsap.to(glow2Ref.current, {
+            boxShadow: shadows[(currentIteration + 1) % shadows.length],
+            duration: 0.75,
+            ease: "linear"
+          });
+        }
+      });
+    }
+  }, []);
 
   return (
     <div
@@ -33,6 +88,15 @@ const CardScreen = () => {
           className="custom-spotlight-card h-full md:w-1/2 w-3/5 md:scale-100 scale-95"
           spotlightColor="#7726c1"
         >
+          <div className="absolute inset-0 rounded-[inherit] overflow-hidden pointer-events-none">
+            <div 
+              ref={glow1Ref}
+              className="absolute inset-0 rounded-[inherit] border-2 border-transparent"
+              style={{
+                boxShadow: "0 0 0 2px transparent, -4px -4px 12px rgba(119, 38, 193, 0.8), 4px 4px 12px transparent"
+              }}
+            ></div>
+          </div>
           <div
             ref={card1Ref}
             className="relative flex items-center justify-center w-full h-full bg-no-repeat bg-center bg-[length:40%]"
@@ -66,6 +130,15 @@ const CardScreen = () => {
           className="custom-spotlight-card h-full md:w-1/2 w-3/5 md:scale-100 scale-95"
           spotlightColor="#7726c1"
         >
+          <div className="absolute inset-0 rounded-[inherit] overflow-hidden pointer-events-none">
+            <div 
+              ref={glow2Ref}
+              className="absolute inset-0 rounded-[inherit] border-2 border-transparent"
+              style={{
+                boxShadow: "0 0 0 2px transparent, -4px -4px 12px rgba(119, 38, 193, 0.8), 4px 4px 12px transparent"
+              }}
+            ></div>
+          </div>
           <div
             ref={card2Ref}
             className="relative flex items-center justify-center w-full h-full bg-no-repeat bg-center bg-[length:40%]"

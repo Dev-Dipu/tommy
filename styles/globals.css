@@ -57,7 +57,7 @@
 }
 
 @font-face {
-  font-family: ppedititalic;
+  font-family: ppedititalic; 
   src: url('/fonts/ppedititalic.woff2');
 }
 @font-face {

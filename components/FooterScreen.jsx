@@ -264,7 +264,7 @@ const FooterScreen = () => {
             </div>
 
             {/* Bottom Bar */}
-            <div className="px-5 md:px-8 py-4 md:py-5 flex  md:flex-row justify-between items-center gap-3 md:gap-0 border-t border-purple-500/30 bg-[#2d1b4e]/50 backdrop-blur-sm">
+            <div className="px-5 md:px-8 py-4 md:py-5 flex  md:flex-row justify-between items-center gap-3 md:gap-0 border-t border-purple-500/30 bg-[#7726C1]/50 backdrop-blur-sm">
                 <Link
                     ref={(el) => (bottomLinksRef.current[1] = el)}
                     className="relative overflow-hidden inline-block group text-xs md:text-sm text-white/80 hover:text-white"
