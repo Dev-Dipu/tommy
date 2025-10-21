@@ -94,15 +94,12 @@ const DifferenceScreen = () => {
                    />
       {/* Heading */}
       <h3 className="md:text-3xl text-xl text-center font-semibold">
-        This is how we are <span className="font-[ppedititalic] font-medium">making a </span>
+        This is how we are <span className="font-[ppedititalic] font-medium">making a difference</span>
       </h3>
 
       {/* Cards Container */}
       <div className="w-3/5 h-[70%] flex items-center justify-center relative md:scale-90 scale-50">
         {/* Large background word */}
-        <h1 className="text-[110px] font-[ppedititalic] text-white absolute z-0 select-none">
-          difference
-        </h1>
 
         {/* Box 1 */}
         <div
@@ -113,7 +110,7 @@ const DifferenceScreen = () => {
             <div className="flex justify-center gap-2 items-center">
               <span
                 ref={(el) => (numbersRef.current[0] = el)}
-                className="text-purple-600 text-3xl font-bold min-w-[3rem] text-center"
+                className="text-purple-600 bg-white text-3xl font-bold min-w-[3.5rem] text-center"
               ></span>
               <h3>Hours</h3>
             </div>
@@ -130,7 +127,7 @@ const DifferenceScreen = () => {
             <div className="flex justify-center gap-2 items-center">
               <span
                 ref={(el) => (numbersRef.current[1] = el)}
-                className="text-purple-600 text-3xl font-bold min-w-[3rem] text-center"
+                className="text-purple-600 bg-white text-3xl font-bold min-w-[3.5rem] text-center"
               ></span>
               <h3>Brands</h3>
             </div>
@@ -147,7 +144,7 @@ const DifferenceScreen = () => {
             <div className="flex justify-center gap-2 items-center">
               <span
                 ref={(el) => (numbersRef.current[2] = el)}
-                className="text-purple-600 text-3xl font-bold min-w-[3rem] text-center"
+                className="text-purple-600 bg-white text-3xl font-bold min-w-[3.5rem] text-center"
               ></span>
               <h3>Clients</h3>
             </div>
