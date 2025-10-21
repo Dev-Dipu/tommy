@@ -26,13 +26,17 @@ export default function Home() {
     const isScrolling = useRef(false);
     useEffect(() => {
         const handleResize = () => {
-            window.location.reload();
+            if (window.innerWidth !== previousWidth.current) {
+                previousWidth.current = window.innerWidth;
+                window.location.reload();
+            }
         };
 
+        const previousWidth = useRef(window.innerWidth);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-    
+
     useEffect(() => {
 
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
