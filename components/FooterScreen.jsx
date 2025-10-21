@@ -253,7 +253,7 @@ const FooterScreen = () => {
                 </div>
 
                 {/* Big Title */}
-                <div className="flex justify-center items-center py-8 md:py-12">
+                <div className="flex justify-center absolute bottom-12 w-full left-0 text-center items-center py-8 md:py-12">
                     <h1
                         ref={bigTitleRef}
                         className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white text-center leading-none"
@@ -264,21 +264,21 @@ const FooterScreen = () => {
             </div>
 
             {/* Bottom Bar */}
-            <div className="px-5 md:px-8 py-4 md:py-5 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 border-t border-purple-500/30 bg-[#2d1b4e]/50 backdrop-blur-sm">
+            <div className="px-5 md:px-8 py-4 md:py-5 flex  md:flex-row justify-between items-center gap-3 md:gap-0 border-t border-purple-500/30 bg-[#2d1b4e]/50 backdrop-blur-sm">
                 <Link
-                    ref={(el) => (bottomLinksRef.current[0] = el)}
+                    ref={(el) => (bottomLinksRef.current[1] = el)}
                     className="relative overflow-hidden inline-block group text-xs md:text-sm text-white/80 hover:text-white"
                     href="#"
                 >
                     <span className="block leading-none transition-transform duration-500 ease-out group-hover:-translate-y-full">
-                        ©2025 New Gen Services
+                        lorem
                     </span>
                     <span className="absolute left-0 top-0 w-full block leading-none translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
-                        ©2025 New Gen Services
+                        lorem
                     </span>
                 </Link>
                 <Link
-                    ref={(el) => (bottomLinksRef.current[1] = el)}
+                    ref={(el) => (bottomLinksRef.current[0] = el)}
                     className="relative overflow-hidden inline-block group text-xs md:text-sm text-white/80 hover:text-white"
                     href="#"
                 >
@@ -295,10 +295,10 @@ const FooterScreen = () => {
                     href="#"
                 >
                     <span className="block leading-none transition-transform duration-500 ease-out group-hover:-translate-y-full">
-                        Terms & Conditions
+                        T&C
                     </span>
                     <span className="absolute left-0 top-0 w-full block leading-none translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
-                        Terms & Conditions
+                        T&C
                     </span>
                 </Link>
             </div>
