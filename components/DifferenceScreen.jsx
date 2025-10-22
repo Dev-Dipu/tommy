@@ -2,7 +2,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 import OverlayGlow from "./OverlayGlow";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -89,7 +88,7 @@ const DifferenceScreen = () => {
        <OverlayGlow />
       {/* Heading */}
       <h3 className="md:text-3xl text-xl text-center font-semibold">
-        This is how we are <span className="font-[ppedititalic] font-medium">making a difference</span>
+        This is how we are making a difference
       </h3>
 
       {/* Cards Container */}

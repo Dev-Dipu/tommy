@@ -166,8 +166,7 @@ const WonderScreen = () => {
                     ref={h2Ref}
                     className="md:text-[26px] text-xl font-[poppin] text-center text-white"
                 >
-                    {splitText("Wondering how we")}{" "}
-                    <span className="font-[ppedititalic]">can help?</span>
+                    {splitText("Wondering how we")}{" "}can help?
                 </h2>
 
                 <h3
