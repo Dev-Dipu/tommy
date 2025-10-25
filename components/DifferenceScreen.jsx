@@ -129,7 +129,7 @@ const DifferenceScreen = () => {
     >
       <OverlayGlow />
       
-      <h3 className="md:text-3xl text-xl text-center font-semibold">
+      <h3 className="md:text-3xl text-xl text-center font-semibold w-4/5">
         This is how we are making a difference
       </h3>
 
