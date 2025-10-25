@@ -49,7 +49,7 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center relative overflow-x-hidden bg-black">
+    <div className="h-screen overflow-hidden flex flex-col items-center relative bg-black">
       {/* Reusable overlay */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <OverlayGlow />

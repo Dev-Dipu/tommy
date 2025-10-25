@@ -172,27 +172,27 @@ export default function Home() {
     <div className="main font-[poppin] text-white bg-[url('/images/grids.svg')] bg-center bg-repeat overflow-x-hidden bg-black">
       <div className="fixed top-0 left-0 z-[999] h-screen w-full bg-[url('/images/noise.png')] bg-cover bg-center pointer-events-none opacity-30"></div>
 
-      <section ref={(el) => (sectionsRef.current[0] = el)} className="min-h-screen relative z-10">
+      <section ref={(el) => (sectionsRef.current[0] = el)} className="relative z-10">
         <HomeScreen />
       </section>
 
-      <section ref={(el) => (sectionsRef.current[1] = el)} className="min-h-screen relative z-10">
+      <section ref={(el) => (sectionsRef.current[1] = el)} className="relative z-10">
         <TextScreen />
       </section>
 
-      <section ref={(el) => (sectionsRef.current[2] = el)} className="min-h-screen relative z-10">
+      <section ref={(el) => (sectionsRef.current[2] = el)} className="relative z-10">
         <CardScreen />
       </section>
 
-      <section ref={(el) => (sectionsRef.current[3] = el)} className="min-h-screen relative z-10">
+      <section ref={(el) => (sectionsRef.current[3] = el)} className="relative z-10">
         <DifferenceScreen />
       </section>
 
-      <section ref={(el) => (sectionsRef.current[4] = el)} className="min-h-screen relative z-10">
+      <section ref={(el) => (sectionsRef.current[4] = el)} className="relative z-10">
         <WonderScreen />
       </section>
 
-      <section ref={(el) => (sectionsRef.current[5] = el)} className="min-h-screen relative z-10">
+      <section ref={(el) => (sectionsRef.current[5] = el)} className="relative z-10">
         <FooterScreen />
       </section>
     </div>

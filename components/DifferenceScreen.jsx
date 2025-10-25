@@ -82,7 +82,7 @@ const DifferenceScreen = () => {
   return (
     <section
       ref={sectionRef}
-      className="h-screen flex flex-col items-center justify-center gap-20 text-white pointer-events-none"
+      className="h-screen overflow-hidden flex flex-col items-center justify-center gap-20 text-white pointer-events-none"
       style={{ perspective: "2000px" }}
     >
        <OverlayGlow />

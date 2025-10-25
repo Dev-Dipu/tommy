@@ -68,7 +68,7 @@ const CardScreen = () => {
 
   return (
     <div
-      className="h-screen font-[poppinmed] flex flex-col gap-16 items-center justify-center relative px-4"
+      className="h-screen overflow-hidden font-[poppinmed] flex flex-col gap-16 items-center justify-center relative px-4"
       style={{ perspective: "2000px" }}
     >
       <OverlayGlow />

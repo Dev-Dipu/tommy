@@ -61,7 +61,7 @@ const TextScreen = () => {
     }, []);
 
     return (
-        <div className="relative h-screen text-white flex items-center justify-center">
+        <div className="relative h-screen overflow-hidden text-white flex items-center justify-center">
             <OverlayGlow />
             <h3 className="font-[poppinmed] md:w-2/5 w-4/5 md:text-3xl text-lg text-center my-36">
                 We leverage AI to achieve more{" "}

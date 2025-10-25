@@ -116,7 +116,7 @@ const FooterScreen = () => {
     };
 
     return (
-        <div className="footer-container h-screen flex flex-col relative">
+        <div className="footer-container h-screen overflow-hidden flex flex-col relative">
                         <Image
                 className="absolute -translate-y-1/2 -translate-x-1/3"
                 width={1000}
