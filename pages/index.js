@@ -41,8 +41,8 @@ export default function Home() {
 
   // rest of your GSAP scroll logic
   useEffect(() => {
-    // const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    // if (isMobile) return;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (isMobile) return;
 
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
