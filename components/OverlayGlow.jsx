@@ -3,7 +3,8 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const OverlayGlow = ({
-  size = 720,
+  size = 840,
+  sizeMobile = 520,
   color1 = "rgba(155,0,255,0.6)",
   color2 = "rgba(75,0,130,0.4)",
   blur = 180,
@@ -12,6 +13,17 @@ const OverlayGlow = ({
 }) => {
   const overlayRef = useRef(null);
   const blobRefs = useRef([]);
+  const [effectiveSize, setEffectiveSize] = React.useState(size);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    const applySize = () => setEffectiveSize(mq.matches ? sizeMobile : size);
+    applySize();
+    mq.addEventListener ? mq.addEventListener("change", applySize) : mq.addListener(applySize);
+    return () => {
+      mq.removeEventListener ? mq.removeEventListener("change", applySize) : mq.removeListener(applySize);
+    };
+  }, [size, sizeMobile]);
 
   useEffect(() => {
     const target = overlayRef.current;
@@ -88,8 +100,8 @@ const OverlayGlow = ({
       <div
         className={`absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${className}`}
         style={{
-          width: size,
-          height: size,
+          width: effectiveSize,
+          height: effectiveSize,
           filter: `url(#gooey-filter) blur(${Math.max(blur - 120, 40)}px)`,
           mixBlendMode: "screen",
         }}
@@ -117,8 +129,8 @@ const OverlayGlow = ({
             ref={(el) => (blobRefs.current[0] = el)}
             className="absolute rounded-full"
             style={{
-              width: size * 0.55,
-              height: size * 0.55,
+              width: effectiveSize * 0.55,
+              height: effectiveSize * 0.55,
               left: "15%",
               top: "18%",
               background: `radial-gradient(circle at 30% 30%, ${color1}, ${color2})`,
@@ -128,8 +140,8 @@ const OverlayGlow = ({
             ref={(el) => (blobRefs.current[1] = el)}
             className="absolute rounded-full"
             style={{
-              width: size * 0.45,
-              height: size * 0.45,
+              width: effectiveSize * 0.45,
+              height: effectiveSize * 0.45,
               left: "40%",
               top: "40%",
               background: `radial-gradient(circle at 70% 40%, ${color1}, ${color2})`,
@@ -139,8 +151,8 @@ const OverlayGlow = ({
             ref={(el) => (blobRefs.current[2] = el)}
             className="absolute rounded-full"
             style={{
-              width: size * 0.35,
-              height: size * 0.35,
+              width: effectiveSize * 0.35,
+              height: effectiveSize * 0.35,
               left: "22%",
               top: "52%",
               background: `radial-gradient(circle at 50% 70%, ${color1}, ${color2})`,
@@ -156,8 +168,8 @@ const OverlayGlow = ({
       ref={overlayRef}
       className={`absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full ${className}`}
       style={{
-        width: size,
-        height: size,
+        width: effectiveSize,
+        height: effectiveSize,
         background: `radial-gradient(circle at center, ${color1}, ${color2})`,
         filter: `blur(${blur}px)`,
         mixBlendMode: "screen",
