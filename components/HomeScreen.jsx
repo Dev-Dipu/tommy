@@ -5,52 +5,69 @@ import Orb from "./Orb";
 import OverlayGlow from "./OverlayGlow";
 import gsap from "gsap";
 
-const businessWords = ["Businesses", "Creators", "Startups", "Enterprises", "Brands"];
+const businessWords = ["Businesses", "Creators", "Artists", "Entrepreneur"];
 
 const HomeScreen = () => {
   const [wordIndex, setWordIndex] = useState(0);
   const wordRef = useRef(null);
-
-  // Calculate max width for smooth container
-  const maxWidth = Math.max(...businessWords.map((w) => w.length));
-  const minWidth = Math.ceil(maxWidth * 0.7);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    const timeline = gsap.timeline({ 
-      repeat: -1, 
+    const timeline = gsap.timeline({
+      repeat: -1,
       repeatDelay: 2,
-      delay: 1
+      delay: 1,
     });
-    
-    timeline
-      .to(wordRef.current, {
-        y: -30,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.in",
-        onComplete: () => {
-          setWordIndex((prev) => (prev + 1) % businessWords.length);
-        },
-      })
-      .fromTo(
-        wordRef.current,
-        { y: 30, opacity: 0 },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.6, 
-          ease: "power2.out" 
-        }
-      );
+
+    timeline.to(wordRef.current, {
+      y: -30,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.in",
+      onComplete: () => {
+        // Update the word
+        setWordIndex((prev) => (prev + 1) % businessWords.length);
+      },
+    });
 
     return () => {
       timeline.kill();
     };
   }, []);
 
+  // Smoothly animate width whenever word changes
+  useEffect(() => {
+    if (!containerRef.current || !wordRef.current) return;
+
+    // Temporarily render to measure width
+    const temp = document.createElement("span");
+    temp.style.position = "absolute";
+    temp.style.visibility = "hidden";
+    temp.style.whiteSpace = "nowrap";
+    temp.style.font = getComputedStyle(wordRef.current).font;
+    temp.innerText = businessWords[wordIndex];
+    document.body.appendChild(temp);
+
+    const newWidth = temp.offsetWidth + 4;
+    document.body.removeChild(temp);
+
+    gsap.to(containerRef.current, {
+      width: newWidth,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+
+    // Fade/slide in new word
+    gsap.fromTo(
+      wordRef.current,
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease: "power2.out", delay: 0.1 }
+    );
+  }, [wordIndex]);
+
   return (
     <div className="h-screen overflow-hidden flex flex-col items-center relative bg-black">
-      {/* Reusable overlay */}
+      {/* Overlay */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <OverlayGlow />
       </div>
@@ -77,27 +94,25 @@ const HomeScreen = () => {
           </div>
         </button>
 
-        {/* Mobile Menu Icon */}
+        {/* Mobile Menu */}
         <CgMenuRight className="text-2xl md:hidden text-white" />
       </header>
 
       {/* Hero Section */}
-      <h2 className="md:text-4xl text-2xl text-center md:w-1/2 w-[90%] mt-14 font-[poppinmed] text-white z-10">
+      <h2 className="md:text-4xl text-2xl text-center md:w-1/2 w-[78%] mt-14 font-[poppinmed] text-white z-10">
         Powering the future of{" "}
-        <span 
-          className="font-[ppedititalic] relative inline-block overflow-hidden align-baseline transition-all duration-500 ease-in-out"
+        <span
+          ref={containerRef}
+          className="font-[ppedititalic] relative inline-block overflow-hidden align-baseline"
           style={{
-            height: "1.3em",
-            verticalAlign: "middle",
-            minWidth: `${minWidth}ch`,
             display: "inline-block",
+            verticalAlign: "middle",
           }}
         >
           <span
             ref={wordRef}
             style={{
               display: "inline-block",
-              width: "100%",
               textAlign: "center",
             }}
           >
@@ -116,7 +131,12 @@ const HomeScreen = () => {
         }}
       >
         <div className="pointer-events-none absolute inset-0">
-          <Orb hoverIntensity={0} rotateOnHover={true} hue={0} forceHoverState={false} />
+          <Orb
+            hoverIntensity={0}
+            rotateOnHover={true}
+            hue={0}
+            forceHoverState={false}
+          />
         </div>
       </div>
 
