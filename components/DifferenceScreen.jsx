@@ -1,126 +1,78 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import OverlayGlow from "./OverlayGlow";
 
 const DifferenceScreen = () => {
   const sectionRef = useRef(null);
   const boxesRef = useRef([]);
   const numbersRef = useRef([]);
-  const observerRef = useRef(null);
   const animationTimelineRef = useRef(null);
-  const isVisibleRef = useRef(false);
 
   const targetNumbers = [81, 24, 37];
 
   useEffect(() => {
-    if (observerRef.current) {
-      observerRef.current.disconnect();
-    }
+    gsap.registerPlugin(ScrollTrigger);
 
-    observerRef.current = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          isVisibleRef.current = true;
-          animateAll();
-        } else {
-          isVisibleRef.current = false;
-          smoothExit();
-        }
+    // Set initial states for boxes and numbers
+    boxesRef.current.forEach((box) => {
+      if (!box) return;
+      gsap.set(box, { opacity: 0, y: 100, scale: 0.9 });
+    });
+    numbersRef.current.forEach((number) => {
+      if (number) number.innerText = "+0";
+    });
+
+    if (!sectionRef.current) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=300%",
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
       },
-      { 
-        threshold: 0.3,
-        rootMargin: "-20% 0px -20% 0px"
-      }
-    );
-
-    if (sectionRef.current) {
-      observerRef.current.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-      if (animationTimelineRef.current) {
-        animationTimelineRef.current.kill();
-      }
-    };
-  }, []);
-
-  const smoothExit = () => {
-    if (animationTimelineRef.current) {
-      animationTimelineRef.current.kill();
-    }
-
-    const exitTimeline = gsap.timeline();
-    
-    boxesRef.current.forEach((box, i) => {
-      if (!box) return;
-      
-      exitTimeline.to(box, {
-        opacity: 0,
-        y: 200,
-        scale: 0.95,
-        duration: 0.6,
-        ease: "power2.in",
-      }, (boxesRef.current.length - 1 - i) * 0.1);
-    });
-  };
-
-  const resetToInitial = () => {
-    boxesRef.current.forEach((box, i) => {
-      if (!box) return;
-      gsap.set(box, {
-        opacity: 0,
-        y: 100,
-        scale: 0.9,
-      });
     });
 
-    numbersRef.current.forEach((number, i) => {
-      if (number) {
-        number.innerText = "+0";
-      }
-    });
-  };
-
-  const animateAll = () => {
-    if (animationTimelineRef.current) {
-      animationTimelineRef.current.kill();
-    }
-
-    animationTimelineRef.current = gsap.timeline();
-
+    // Reveal each card sequentially and animate numbers in sync
     boxesRef.current.forEach((box, i) => {
       if (!box) return;
-      
-      animationTimelineRef.current.to(box, {
+      const numObj = { val: 0 };
+
+      tl.to(box, {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.8,
+        duration: 1,
         ease: "power2.out",
-      }, i * 0.2);
+      });
 
-      animateNumber(i, i * 0.2 + 0.3);
+      tl.to(numObj, {
+        val: targetNumbers[i],
+        duration: 1,
+        ease: "none",
+        onUpdate: () => {
+          const el = numbersRef.current[i];
+          if (el) el.innerText = `+${Math.floor(numObj.val)}`;
+        },
+      }, "<+0.2");
     });
-  };
 
-  const animateNumber = (index, delay) => {
-    const obj = { val: 0 };
-    gsap.to(obj, {
-      val: targetNumbers[index],
-      duration: 1.5,
-      delay: delay,
-      ease: "power1.out",
-      onUpdate: () => {
-        if (numbersRef.current[index]) {
-          numbersRef.current[index].innerText = `+${Math.floor(obj.val)}`;
-        }
-      },
-    });
-  };
+    animationTimelineRef.current = tl;
+
+    return () => {
+      if (animationTimelineRef.current) {
+        animationTimelineRef.current.kill();
+        animationTimelineRef.current = null;
+      }
+      ScrollTrigger.kill();
+    };
+  }, []);
+
+  // ScrollTrigger-driven animations replace previous intersection logic
 
   return (
     <section
@@ -188,6 +140,10 @@ const DifferenceScreen = () => {
           </div>
         </div>
       </div>
+
+      {/* Top & bottom fades to blend with adjacent sections */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-t from-transparent to-black/70" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-black/70" />
     </section>
   );
 };

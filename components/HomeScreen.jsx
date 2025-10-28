@@ -138,6 +138,9 @@ const HomeScreen = () => {
         Modern solutions for businesses and creators who want to grow, stand out,
         and save time.
       </p>
+
+      {/* Bottom fade for smooth transition */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-black" />
     </div>
   );
 };
