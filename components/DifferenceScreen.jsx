@@ -138,7 +138,7 @@ const DifferenceScreen = () => {
           ref={(el) => (boxesRef.current[0] = el)}
           className="box absolute flex items-center justify-center -translate-y-1/2 -translate-x-2/3 -rotate-3 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat z-10 opacity-0"
         >
-          <div className="w-[65%] font-[ppedit] text-3xl text-center">
+          <div className="w-[65%] font-[poppinsemi] text-3xl text-center">
             <div className="flex justify-center gap-2 items-center">
               <span
                 ref={(el) => (numbersRef.current[0] = el)}
@@ -156,7 +156,7 @@ const DifferenceScreen = () => {
           ref={(el) => (boxesRef.current[1] = el)}
           className="box absolute flex items-center justify-center md:-bottom-14 bottom-0 -rotate-2 w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat z-10 opacity-0"
         >
-          <div className="w-[65%] font-[ppedit] text-3xl text-center">
+          <div className="w-[65%] font-[poppinsemi] text-3xl text-center">
             <div className="flex justify-center gap-2 items-center">
               <span
                 ref={(el) => (numbersRef.current[1] = el)}
@@ -174,7 +174,7 @@ const DifferenceScreen = () => {
           ref={(el) => (boxesRef.current[2] = el)}
           className="box absolute flex items-center justify-center -translate-y-1/2 translate-x-[70%] rotate-[5.45deg] w-80 aspect-square bg-[url('/images/glowbox.svg')] bg-center bg-no-repeat z-10 opacity-0"
         >
-          <div className="w-[65%] font-[ppedit] text-3xl text-center">
+          <div className="w-[65%] font-[poppinsemi] text-3xl text-center">
             <div className="flex justify-center gap-2 items-center">
               <span
                 ref={(el) => (numbersRef.current[2] = el)}

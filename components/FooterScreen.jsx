@@ -131,7 +131,7 @@ const FooterScreen = () => {
                     <div className="flex flex-col md:items-start items-center md:gap-0 gap-5">
                         <h4 ref={titleRef} className="md:text-2xl text-xl md:text-start text-center w-2/3">
                             {splitText("New Gen Services,")}
-                            <span className="font-[ppedititalic]">
+                            <span className="font-[poppin]">
                                 Modern Solutions
                             </span>
                         </h4>

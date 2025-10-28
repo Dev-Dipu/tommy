@@ -66,7 +66,7 @@ const TextScreen = () => {
             <h3 className="font-[poppinmed] md:w-2/5 w-4/5 md:text-3xl text-lg text-center my-36">
                 We leverage AI to achieve more{" "}
                 <span
-                    className="italic font-[ppeultraitalic] relative inline-block overflow-hidden align-baseline transition-all duration-500 ease-in-out"
+                    className="font-[poppin] relative inline-block overflow-hidden align-baseline transition-all duration-500 ease-in-out"
                     style={{
                         height: "1.2em",
                         verticalAlign: "middle",
@@ -88,7 +88,7 @@ const TextScreen = () => {
                 </span>{" "}
                 with less{" "}
                 <span
-                    className="italic font-[ppeultraitalic] relative inline-block overflow-hidden align-baseline transition-all duration-500 ease-in-out"
+                    className="font-[poppin] relative inline-block overflow-hidden align-baseline transition-all duration-500 ease-in-out"
                     style={{
                         height: "1.2em",
                         verticalAlign: "middle",

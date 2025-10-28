@@ -77,7 +77,7 @@ const HomeScreen = () => {
         className="z-10 md:w-[57%] w-[90%] flex justify-between items-center text-lg
           p-3 mt-4"
       >
-        <h1 className="select-none text-lg text-white font-[ppedititalic] tracking-wide">
+        <h1 className="select-none text-lg text-white font-[poppin] tracking-wide">
           Logo.
         </h1>
 
@@ -103,7 +103,7 @@ const HomeScreen = () => {
         Powering the future of{" "}
         <span
           ref={containerRef}
-          className="font-[ppedititalic] relative inline-block overflow-hidden align-baseline"
+          className="font-[poppinmed] relative inline-block overflow-hidden align-baseline"
           style={{
             display: "inline-block",
             verticalAlign: "middle",
@@ -130,6 +130,14 @@ const HomeScreen = () => {
           height: "440px",
         }}
       >
+        {/* <video
+          src="/orbvid.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-1/3 aspect-square h-full object-cover mx-auto "
+        ></video> */}
         <div className="pointer-events-none absolute inset-0">
           <Orb
             hoverIntensity={0}
