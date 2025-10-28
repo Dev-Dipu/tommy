@@ -1,69 +1,70 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { CgMenuRight } from "react-icons/cg";
 import Orb from "./Orb";
 import OverlayGlow from "./OverlayGlow";
 import gsap from "gsap";
 
-const businessWords = ["Businesses", "Creators", "Artists", "Entrepreneur"];
+const businessWords = ["Businesses", "Creators", "Artists", "Entrepreneurs"];
 
 const HomeScreen = () => {
-  const [wordIndex, setWordIndex] = useState(0);
   const wordRef = useRef(null);
   const containerRef = useRef(null);
+  const currentIndex = useRef(0);
+  const tl = useRef(null);
 
   useEffect(() => {
-    const timeline = gsap.timeline({
-      repeat: -1,
-      repeatDelay: 2,
-      delay: 1,
-    });
+    const animateWord = () => {
+      const nextIndex = (currentIndex.current + 1) % businessWords.length;
+      const nextWord = businessWords[nextIndex];
 
-    timeline.to(wordRef.current, {
-      y: -30,
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.in",
-      onComplete: () => {
-        // Update the word
-        setWordIndex((prev) => (prev + 1) % businessWords.length);
-      },
-    });
+      gsap.to(wordRef.current, {
+        y: -20,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.inOut",
+        onComplete: () => {
+          const temp = document.createElement("span");
+          temp.style.position = "absolute";
+          temp.style.visibility = "hidden";
+          temp.style.whiteSpace = "nowrap";
+          temp.style.font = getComputedStyle(wordRef.current).font;
+          temp.innerText = nextWord;
+          document.body.appendChild(temp);
+          const newWidth = temp.offsetWidth + 4;
+          document.body.removeChild(temp);
 
-    return () => {
-      timeline.kill();
+          gsap.to(containerRef.current, {
+            width: newWidth,
+            duration: 0.4,
+            ease: "power2.out",
+            onComplete: () => {
+              wordRef.current.innerText = nextWord;
+              currentIndex.current = nextIndex;
+
+              gsap.fromTo(
+                wordRef.current,
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.6, ease: "power2.out", delay: 0.05 }
+              );
+            },
+          });
+        },
+      });
     };
+
+    tl.current = gsap.timeline({ repeat: -1, repeatDelay: 1.6, delay: 1 });
+    tl.current.call(animateWord);
+    tl.current.to({}, { duration: 2 });
+    tl.current.call(animateWord);
+    tl.current.to({}, { duration: 2 });
+    tl.current.call(animateWord);
+    tl.current.to({}, { duration: 2 });
+    tl.current.call(animateWord);
+    tl.current.to({}, { duration: 2 });
+
+    return () => tl.current && tl.current.kill();
   }, []);
-
-  // Smoothly animate width whenever word changes
-  useEffect(() => {
-    if (!containerRef.current || !wordRef.current) return;
-
-    // Temporarily render to measure width
-    const temp = document.createElement("span");
-    temp.style.position = "absolute";
-    temp.style.visibility = "hidden";
-    temp.style.whiteSpace = "nowrap";
-    temp.style.font = getComputedStyle(wordRef.current).font;
-    temp.innerText = businessWords[wordIndex];
-    document.body.appendChild(temp);
-
-    const newWidth = temp.offsetWidth + 4;
-    document.body.removeChild(temp);
-
-    gsap.to(containerRef.current, {
-      width: newWidth,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-
-    // Fade/slide in new word
-    gsap.fromTo(
-      wordRef.current,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, ease: "power2.out", delay: 0.1 }
-    );
-  }, [wordIndex]);
 
   return (
     <div className="h-screen overflow-hidden flex flex-col items-center relative bg-black">
@@ -73,15 +74,11 @@ const HomeScreen = () => {
       </div>
 
       {/* Navbar */}
-      <header
-        className="z-10 md:w-[57%] w-[90%] flex justify-between items-center text-lg
-          p-3 mt-4"
-      >
+      <header className="z-10 md:w-[57%] w-[90%] flex justify-between items-center text-lg p-3 mt-4">
         <h1 className="select-none text-lg text-white font-[poppin] tracking-wide">
           Logo.
         </h1>
 
-        {/* Book Meeting Button */}
         <button className="group md:block hidden relative px-4 py-2 text-black bg-white cursor-pointer w-36 overflow-hidden h-[40px] rounded-[6px] text-sm font-[poppinmed]">
           <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
           <div className="relative h-full overflow-hidden">
@@ -94,12 +91,11 @@ const HomeScreen = () => {
           </div>
         </button>
 
-        {/* Mobile Menu */}
         <CgMenuRight className="text-2xl md:hidden text-white" />
       </header>
 
       {/* Hero Section */}
-      <h2 className="md:text-4xl text-2xl text-center md:w-1/2 w-[78%] mt-14 font-[poppinmed] text-white z-10">
+      <h2 className="md:text-4xl text-[4.5vw] text-center md:w-1/2 w-[95%] mt-14 font-[poppinmed] text-white z-10 leading-snug">
         Powering the future of{" "}
         <span
           ref={containerRef}
@@ -116,10 +112,13 @@ const HomeScreen = () => {
               textAlign: "center",
             }}
           >
-            {businessWords[wordIndex]}
+            {businessWords[0]}
           </span>
-        </span>{" "}
-        with AI, Digital Innovation & Media
+        </span>
+        <br />
+        <span className="block">
+          with AI, Digital Innovation & Media
+        </span>
       </h2>
 
       {/* Orb Section */}
@@ -130,21 +129,8 @@ const HomeScreen = () => {
           height: "440px",
         }}
       >
-        {/* <video
-          src="/orbvid.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-1/3 aspect-square h-full object-cover mx-auto "
-        ></video> */}
         <div className="pointer-events-none absolute inset-0">
-          <Orb
-            hoverIntensity={0}
-            rotateOnHover={true}
-            hue={0}
-            forceHoverState={false}
-          />
+          <Orb hoverIntensity={0} rotateOnHover={true} hue={0} forceHoverState={false} />
         </div>
       </div>
 
