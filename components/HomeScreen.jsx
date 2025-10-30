@@ -128,7 +128,7 @@ const HomeScreen = () => {
   loop
   muted
   playsInline
-  className="relative w-[450px] h-[450px] mt-10 object-cover mx-auto mix-blend-screen opacity-90 brightness-200 contrast-125"
+  className="relative aspect-square md:w-[450px] w-4/5 mt-10 object-cover mx-auto mix-blend-screen opacity-90 brightness-200 contrast-125"
 />
 
       <p className="md:w-[30%] font-[poppin] w-4/5 md:text-xl text-center text-white/80 mt-6 mb-16 z-10">
