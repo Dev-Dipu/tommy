@@ -132,7 +132,7 @@ const FooterScreen = () => {
   loop
   muted
   playsInline
-  className="absolute w-2/3 aspect-square left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 -z-10 object-cover mx-auto mix-blend-screen opacity-90 brightness-200 contrast-125"
+  className="absolute w-2/3 aspect-square left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 -z-10 object-cover mx-auto mix-blend-screen opacity-90"
 />
                 <div className="flex md:flex-row flex-col justify-between h-full">
                     <div className="flex flex-col md:items-start items-center md:gap-0 gap-5">
