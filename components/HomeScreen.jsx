@@ -79,7 +79,7 @@ const HomeScreen = () => {
           Logo.
         </h1>
 
-        <button className="group md:block hidden relative px-4 py-2 text-black bg-white cursor-pointer w-36 overflow-hidden h-[40px] rounded-[6px] text-sm font-[poppinmed]">
+        <button className="group relative px-4 py-2 text-black bg-white cursor-pointer w-36 overflow-hidden h-[40px] rounded-[6px] text-sm font-[poppinmed]">
           <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
           <div className="relative h-full overflow-hidden">
             <span className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out group-hover:-translate-y-full">
@@ -91,7 +91,7 @@ const HomeScreen = () => {
           </div>
         </button>
 
-        <CgMenuRight className="text-2xl md:hidden text-white" />
+        {/* <CgMenuRight className="text-2xl md:hidden text-white" /> */}
       </header>
 
       {/* Hero Section */}
