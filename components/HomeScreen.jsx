@@ -129,9 +129,17 @@ const HomeScreen = () => {
           height: "440px",
         }}
       >
-        <div className="pointer-events-none absolute inset-0">
+        {/* <div className="pointer-events-none absolute inset-0">
           <Orb hoverIntensity={0} rotateOnHover={true} hue={0} forceHoverState={false} />
-        </div>
+        </div> */}
+        <video
+          src="/orbvideo.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-1/3 aspect-square h-full object-cover object-center mx-auto"
+        ></video>
       </div>
 
       <p className="md:w-[30%] font-[poppin] w-4/5 md:text-xl text-center text-white/80 mt-6 mb-16 z-10">
