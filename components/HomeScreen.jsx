@@ -122,25 +122,14 @@ const HomeScreen = () => {
       </h2>
 
       {/* Orb Section */}
-      <div
-        className="relative md:scale-100 scale-90 mt-10 z-0"
-        style={{
-          width: "100%",
-          height: "440px",
-        }}
-      >
-        {/* <div className="pointer-events-none absolute inset-0">
-          <Orb hoverIntensity={0} rotateOnHover={true} hue={0} forceHoverState={false} />
-        </div> */}
-        <video
-          src="/orbvideo.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-1/3 aspect-square h-full object-cover object-center mx-auto"
-        ></video>
-      </div>
+      <video
+  src="/neonloop.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="relative w-[450px] h-[450px] mt-10 object-cover mx-auto mix-blend-screen opacity-90 brightness-200 contrast-125"
+/>
 
       <p className="md:w-[30%] font-[poppin] w-4/5 md:text-xl text-center text-white/80 mt-6 mb-16 z-10">
         Modern solutions for businesses and creators who want to grow, stand out,

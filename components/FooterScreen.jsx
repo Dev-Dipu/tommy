@@ -126,7 +126,14 @@ const FooterScreen = () => {
             />
             <OverlayGlow />
             <div className="md:p-7 p-4 h-full border-t-[0.6] relative">
-            <Image className="absolute md:-bottom-20 -bottom-10 -z-10" width={2000} height={1} src={"/images/roundarc.png"} alt="roundarc" />
+            <video
+  src="/neonloop.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="absolute w-1/2 aspect-square left-1/2 -translate-x-1/2 translate-y-1/2 -z-10 object-cover mx-auto mix-blend-screen opacity-90 brightness-200 contrast-125"
+/>
                 <div className="flex md:flex-row flex-col justify-between h-full">
                     <div className="flex flex-col md:items-start items-center md:gap-0 gap-5">
                         <h4 ref={titleRef} className="md:text-2xl text-xl md:text-start text-center w-2/3">
