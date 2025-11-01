@@ -12,6 +12,14 @@ const HomeScreen = () => {
   const containerRef = useRef(null);
   const currentIndex = useRef(0);
   const tl = useRef(null);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.playbackRate = 0.78; // 0.5x = half speed (slow motion)
+    }
+  }, []);
 
   useEffect(() => {
     const animateWord = () => {
@@ -123,6 +131,7 @@ const HomeScreen = () => {
 
       {/* Orb Section */}
       <video
+      ref={videoRef}
   src="/neonloop.mp4"
   autoPlay
   loop

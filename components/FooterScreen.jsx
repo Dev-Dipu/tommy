@@ -125,18 +125,18 @@ const FooterScreen = () => {
                 alt="kuchbhi"
             />
             <OverlayGlow />
-            <div className="md:p-7 p-4 h-full border-t-[0.6] relative">
+            <div className="md:p-7 p-4 pt-0 md:pt-15 h-full border-t-[0.6] relative">
             <video
-  src="/neonloop.mp4"
+  src="/bottomarc.mp4"
   autoPlay
   loop
   muted
   playsInline
-  className="absolute w-2/3 aspect-square left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 -z-10 object-cover mx-auto mix-blend-screen opacity-90"
+  className="absolute w-1/3 aspect-square left-1/2 bottom-0 -translate-x-1/2 translate-y-1/4 -z-10 object-cover mx-auto mix-blend-screen opacity-90"
 />
                 <div className="flex md:flex-row flex-col justify-between h-full">
                     <div className="flex flex-col md:items-start items-center md:gap-0 gap-5">
-                        <h4 ref={titleRef} className="md:text-2xl mt-8 md:mt-0 text-xl md:text-start text-center w-2/3">
+                        <h4 ref={titleRef} className="md:text-2xl mt-10 md:mt-0 text-xl md:text-start text-center w-2/3">
                             {splitText("New Gen Services,")}
                             <span className="font-[poppin]">
                                 Modern Solutions
