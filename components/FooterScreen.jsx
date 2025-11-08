@@ -148,6 +148,7 @@ const FooterScreen = () => {
     scale-110         /* Softly scales up to hide any sharp crop */
   "
 />
+{/* Bottom fade */}
 <div
   className="
     absolute hidden md:block bottom-0 left-0 w-full h-[120px]
@@ -156,6 +157,18 @@ const FooterScreen = () => {
     -z-10
   "
 />
+
+{/* Left-right smooth fade */}
+<div
+  className="
+    absolute inset-0 hidden md:block
+    bg-gradient-to-r from-[#0a001a]/90 via-transparent to-[#0a001a]/90
+    opacity-70
+    pointer-events-none
+    -z-10
+  "
+/>
+
 
                 <div className="flex md:flex-row flex-col justify-between h-full">
                     <div className="flex flex-col md:items-start items-center md:gap-0 gap-5">
