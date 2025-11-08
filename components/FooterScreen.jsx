@@ -132,8 +132,31 @@ const FooterScreen = () => {
   loop
   muted
   playsInline
-  className="absolute w-1/3 aspect-square left-1/2 bottom-0 -translate-x-1/2 translate-y-1/4 -z-10 object-cover mx-auto mix-blend-screen opacity-90"
+  className="
+    absolute
+    w-[45%]          /* Slightly larger to give the glow breathing space */
+    aspect-square
+    left-1/2
+    bottom-0
+    -translate-x-1/2
+    translate-y-1/3  /* Lower a bit for natural blending */
+    -z-10
+    object-cover
+    opacity-90
+    mix-blend-screen
+    pointer-events-none
+    scale-110         /* Softly scales up to hide any sharp crop */
+  "
 />
+<div
+  className="
+    absolute hidden md:block bottom-0 left-0 w-full h-[120px]
+    bg-gradient-to-t from-[#0a001a] via-[#0a001a]/70 to-transparent
+    pointer-events-none
+    -z-10
+  "
+/>
+
                 <div className="flex md:flex-row flex-col justify-between h-full">
                     <div className="flex flex-col md:items-start items-center md:gap-0 gap-5">
                         <h4 ref={titleRef} className="md:text-2xl mt-10 md:mt-0 text-xl md:text-start text-center w-2/3">
