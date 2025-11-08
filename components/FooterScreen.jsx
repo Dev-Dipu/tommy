@@ -134,40 +134,43 @@ const FooterScreen = () => {
   playsInline
   className="
     absolute
-    w-[45%]          /* Slightly larger to give the glow breathing space */
+    w-[60%]             /* Slightly larger for mobile coverage */
+    md:w-[45%]          /* Balanced width for desktops */
     aspect-square
     left-1/2
     bottom-0
     -translate-x-1/2
-    translate-y-1/3  /* Lower a bit for natural blending */
+    translate-y-1/3
     -z-10
     object-cover
     opacity-90
     mix-blend-screen
     pointer-events-none
-    scale-110         /* Softly scales up to hide any sharp crop */
+    scale-110
   "
 />
-{/* Bottom fade */}
+
+{/* Bottom fade (visible on all devices) */}
 <div
   className="
-    absolute hidden md:block bottom-0 left-0 w-full h-[120px]
+    absolute bottom-0 left-0 w-full h-[100px] md:h-[120px]
     bg-gradient-to-t from-[#0a001a] via-[#0a001a]/70 to-transparent
     pointer-events-none
     -z-10
   "
 />
 
-{/* Left-right smooth fade */}
+{/* Left-right smooth fade (now visible on phone + adaptive opacity) */}
 <div
   className="
-    absolute inset-0 hidden md:block
-    bg-gradient-to-r from-[#0a001a]/90 via-transparent to-[#0a001a]/90
-    opacity-70
+    absolute inset-0
+    bg-gradient-to-r from-[#0a001a]/95 via-transparent to-[#0a001a]/95
+    opacity-60 sm:opacity-70 md:opacity-80
     pointer-events-none
     -z-10
   "
 />
+
 
 
                 <div className="flex md:flex-row flex-col justify-between h-full">
