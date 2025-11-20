@@ -68,7 +68,7 @@ const DifferenceScreen = () => {
         animationTimelineRef.current.kill();
         animationTimelineRef.current = null;
       }
-      ScrollTrigger.kill();
+      ScrollTrigger.killAll();
     };
   }, []);
 
