@@ -4,6 +4,7 @@ import { CgMenuRight } from "react-icons/cg";
 import Orb from "./Orb";
 import OverlayGlow from "./OverlayGlow";
 import gsap from "gsap";
+import Button from "./partials/Button";
 
 const businessWords = ["Businesses", "Creators", "Artists", "Entrepreneurs"];
 
@@ -87,17 +88,7 @@ const HomeScreen = () => {
           Logo.
         </h1>
 
-        <button className="group relative px-4 py-2 text-black bg-white cursor-pointer w-36 overflow-hidden h-[40px] rounded-[6px] text-sm font-[poppinmed]">
-          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
-          <div className="relative h-full overflow-hidden">
-            <span className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out group-hover:-translate-y-full">
-              Book Meeting
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
-              Book Meeting
-            </span>
-          </div>
-        </button>
+        <Button text="Book Meeting" />
 
         {/* <CgMenuRight className="text-2xl md:hidden text-white" /> */}
       </header>
