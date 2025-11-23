@@ -4,6 +4,7 @@ import UnlockCardScreen from "@/components/UnlockCardScreen";
 import FromCardScreen from "@/components/FromCardScreen";
 import TestimonialsSwiper from "@/components/TestimonialsSwiper";
 import FAQSection from "@/components/partials/FAQSection";
+import CTASection from "@/components/CTASection";
 
 const b2b = () => {
     return (
@@ -14,6 +15,7 @@ const b2b = () => {
             <FromCardScreen />
             <TestimonialsSwiper />
             <FAQSection />
+            <CTASection />
         </div>
     );
 };

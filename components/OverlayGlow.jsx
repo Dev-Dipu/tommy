@@ -8,6 +8,7 @@ const OverlayGlow = ({
   color2 = "rgba(75,0,130,0.4)",
   blur = 180,
   className = "",
+  scale = 1.6,
 }) => {
   const overlayRef = useRef(null);
 
@@ -22,7 +23,7 @@ const OverlayGlow = ({
     gsap.to(overlayRef.current, {
       x: "+=60",
       y: "+=30",
-      scale: 1.6,
+      scale: scale,
       rotation: 5,
       duration: 4,
       ease: "sine.inOut",

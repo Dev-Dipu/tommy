@@ -39,7 +39,7 @@ export default function FAQSection() {
       </h2>
 
       {/* Card Container */}
-      <div className="z-10 w-[92%] md:w-[70%] bg-white/10 backdrop-blur-xl rounded-xl border border-white/15 shadow-2xl py-10 px-6 md:px-8 relative">
+      <div className="z-10 w-[92%] md:w-[70%] bg-white/10 backdrop-blur-xl rounded-xl border border-white/15 shadow-2xl py-6 px-6 md:px-8 relative">
 
         {faqs.map((item, i) => (
           <div key={i} className={`w-full rounded-md ${openIndex === i && "bg-white shadow-lg"}`}>
