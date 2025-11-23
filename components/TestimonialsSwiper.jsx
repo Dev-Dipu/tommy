@@ -61,7 +61,7 @@ export default function TestimonialsSwiper() {
   ];
 
   return (
-    <section className="min-h-[60vh] w-full flex flex-col items-center justify-center text-white relative py-12">
+    <section className="md:min-h-[60vh] min-h-[70vh] w-full flex flex-col items-center justify-center text-white relative py-12">
       <style jsx global>{`
         .swiper-pagination-bullet {
           background: #ffffff !important;
@@ -77,17 +77,17 @@ export default function TestimonialsSwiper() {
       `}</style>
 
       {/* Title + Nav buttons */}
-      <div className="flex items-center justify-center gap-6 mb-10 z-10">
-        <button className="swiper-button-prev !relative !w-10 !h-10 !mt-0 rounded-full flex items-center justify-center transition-all">
-          <ChevronLeft className="w-6 h-6 text-[#E6E6E6]" />
+      <div className="flex items-center justify-center gap-1 mb-10 z-10">
+        <button className="!relative !w-10 !h-10 !mt-0 rounded-full flex items-center justify-center transition-all">
+          <ChevronLeft className="swiper-button-prev md:scale-80 scale-65 w-4 h-4 !text-[#E6E6E6]" />
         </button>
         
-        <h2 className="text-md md:text-lg whitespace-nowrap text-[#E6E6E6]">
-          " What Creators Say About Us "
+        <h2 className="text-md md:text-lg whitespace-nowrap  text-[#E6E6E6]">
+          " How we have helped businesses "
         </h2>
         
-        <button className="swiper-button-next !relative !w-10 !h-10 !mt-0 rounded-full flex items-center justify-center transition-all">
-          <ChevronRight className="w-6 h-6 text-[#E6E6E6]" />
+        <button className=" !relative !w-10 !h-10 !mt-0 rounded-full flex items-center justify-center transition-all">
+          <ChevronRight className="swiper-button-next md:scale-80 scale-65 w-4 h-4 !text-[#E6E6E6]" />
         </button>
       </div>
 
@@ -108,10 +108,6 @@ export default function TestimonialsSwiper() {
             pauseOnMouseEnter: true,
           }}
           pagination={{ clickable: true, dynamicBullets: true }}
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
           breakpoints={{
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },

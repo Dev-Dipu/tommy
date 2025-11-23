@@ -28,7 +28,7 @@ export default function FAQSection() {
 
   return (
     <section
-      className="min-h-screen flex flex-col items-center gap-12 text-white relative"
+      className="md:min-h-screen flex flex-col items-center gap-12 text-white relative"
     >
       <div className="pointer-events-none absolute inset-0 z-0">
         <OverlayGlow />
@@ -39,25 +39,25 @@ export default function FAQSection() {
       </h2>
 
       {/* Card Container */}
-      <div className="z-10 w-[92%] md:w-[70%] bg-white/10 backdrop-blur-xl rounded-xl border border-white/15 shadow-2xl py-6 px-6 md:px-8 relative">
+      <div className="z-10 w-[92%] md:w-[70%] bg-white/10 backdrop-blur-xl rounded-xl border border-white/15 shadow-2xl py-4 px-4 md:px-8 relative">
 
         {faqs.map((item, i) => (
           <div key={i} className={`w-full rounded-md ${openIndex === i && "bg-white shadow-lg"}`}>
             {/* Row */}
             <div
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              className={`flex items-center justify-between w-full cursor-pointer relative py-6 pl-3 ${openIndex === i && "text-purple-600 "}`}
+              className={`flex items-center justify-between w-full cursor-pointer relative md:py-6 py-4 md:pl-3 pl-1.5 ${openIndex === i && "text-purple-600 "}`}
             >
               {/* Index */}
               <span className="text-sm opacity-80 w-10">{`0${i + 1}`}</span>
 
               {/* Question */}
-              <p className={`flex-1 text-sm md:text-base font-medium text-center absolute left-1/3`}>
+              <p className={`flex-1 text-sm md:text-base font-medium absolute md:left-1/3 left-7`}>
                 {item.q}
               </p>
 
               {/* Icon */}
-              <div className="w-10 flex justify-center">
+              <div className="md:w-10 w-6 flex justify-center">
                 {openIndex === i ? (
                   <X className="w-5 h-5 opacity-80" />
                 ) : (
@@ -73,8 +73,8 @@ export default function FAQSection() {
               }`}
             >
               <div className=" text-black rounded-xl px-6 mb-6 flex">
-                <div className="w-[32.5%]"></div>
-                <p className="text-sm text-gray-700 whitespace-pre-line w-1/2">
+                <div className="w-[32.5%] md:block hidden"></div>
+                <p className="text-sm text-gray-700 whitespace-pre-line md:w-1/2">
                   {item.a}
                 </p>
               </div>

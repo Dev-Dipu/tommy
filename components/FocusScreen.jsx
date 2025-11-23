@@ -26,18 +26,18 @@ const FocusScreen = () => {
       <p className='text-center md:w-[45%] w-[95%] mb-4'>At New Gen Services, we empower you to create more, create better, and create at scale. Our AI-powered media solutions handle the heavy lifting so you can focus on what you do best - creating, performing, and connecting with your audience.</p>
       <Button text="Book Meeting" />
       </div>
-      <div className="z-10 flex items-center gap-6 text-white">
-      {[
-    "For Creators",
-    "For Personal Brands",
-    "For Artists & Musicians",
-  ].map((item) => (
-        <div key={item} className="flex items-center gap-2">
-          <LucideCheckCircle className="text-white text-lg" />
-          <span className="text-lg font-medium">{item}</span>
-        </div>
-      ))}
-      </div>
+      <div className="z-10 flex flex-wrap justify-center items-center gap-6 text-white">
+            {[
+          "For all Businesses",
+          "For Enterprises",
+          "For Start-ups",
+        ].map((item) => (
+              <div key={item} className="flex items-center gap-2">
+                <LucideCheckCircle className="text-white md:text-lg text-sm" />
+                <span className="md:text-lg font-medium">{item}</span>
+              </div>
+            ))}
+            </div>
 
     </section>
   )
