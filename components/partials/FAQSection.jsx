@@ -10,7 +10,7 @@ export default function FAQSection() {
   const faqs = [
     {
       q: "Do I need to understand content ideas?",
-      a: "",
+      a: "Nope, zero need to figure out content ideas or plans. Instead, our crew takes care of it all - starting with planning, then digging into research, plus shaping a unique spin for your brand. Just tell us what you’re aiming for, what you like, along with where you’d like to head. From there, we shape those thoughts into neat, usable material. That way, things stay smooth and light on your end.",
     },
     {
       q: "How long does production take?",
@@ -18,11 +18,11 @@ export default function FAQSection() {
     },
     {
       q: "Can I make changes to automated content?",
-      a: "",
+      a: "For sure. You’re free to tweak things whenever needed. While the system creates the first version automatically, you can still rework it - change how it sounds or ask us to fix parts if it doesn’t match your voice. Any time you want adjustments, just say so. It’s your call at every step, keeping everything in line with how you communicate.",
     },
     {
       q: "Is the process fully AI-powered?",
-      a: "",
+      a: "The system runs on AI to boost how fast things are made, keep a steady flow, yet still brings fresh thoughts rapidly. Still, there's no full automation here. Each bit gets checked by people, tweaked carefully, while going through layers that test precision, spark originality, plus fit the brand tone. What you end up with mixes smart speed from tech together with sharp human touch.",
     },
   ];
 

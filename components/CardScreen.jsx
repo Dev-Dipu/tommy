@@ -104,7 +104,9 @@ const CardScreen = () => {
                 ref={card1BtnRef}
                 className="absolute w-full flex gap-[7px] bottom-0"
               >
-                <button className="group relative px-4 py-2 text-black bg-white cursor-pointer w-full overflow-hidden group h-[40px] rounded-[6px]">
+                <button onClick={() => {
+                  window.location.href = "/b2b"
+                }} className="group relative px-4 py-2 text-black bg-white cursor-pointer w-full overflow-hidden group h-[40px] rounded-[6px]">
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
                   <div className="relative h-full overflow-hidden">
                     <span className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out group-hover:-translate-y-full">
@@ -146,7 +148,9 @@ const CardScreen = () => {
                 ref={card2BtnRef}
                 className="absolute w-full flex gap-[7px] bottom-0"
               >
-                <button className="group relative px-4 py-2 text-black bg-white cursor-pointer w-full overflow-hidden group h-[40px] rounded-[6px]">
+                <button onClick={() => {
+                  window.location.href = "/b2c"
+                }} className="group relative px-4 py-2 text-black bg-white cursor-pointer w-full overflow-hidden group h-[40px] rounded-[6px]">
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
                   <div className="relative h-full overflow-hidden">
                     <span className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out group-hover:-translate-y-full">

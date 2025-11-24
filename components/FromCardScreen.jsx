@@ -24,7 +24,7 @@ export default function FromCardScreen() {
         <OverlayGlow />
       </div>
 
-      <h2 className='z-10 md:text-4xl text-[4.5vw] text-center md:w-1/2 w-[95%] mt-14 font-[poppinmed] text-white leading-snug'>unlock your Creative Potential</h2>
+      <h2 className='z-10 md:text-4xl text-[4.5vw] text-center md:w-1/2 w-[95%] mt-14 font-[poppinmed] text-white leading-snug'>From Overwhelmed to Outstanding</h2>
 
       {/* Cards */}
       <div className="z-10 flex md:flex-row flex-col justify-center gap-8 w-[90%] md:w-[70%]">

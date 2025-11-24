@@ -10,55 +10,57 @@ import "swiper/css/pagination";
 
 export default function TestimonialsSwiper() {
   const testimonials = [
-    {
-      name: "Sophia Mitchell",
-      role: "Music Artist & Podcaster",
-      img: "/avatar1.png",
-      text: "<< Dico is finally addressing a long time problem we had when building UIs. It's ease of use and workflow seems really intuitive. Promising! >>",
-      date: "2021.03.02",
-      flag: "🇺🇸",
-    },
-    {
-      name: "Martin Goutry",
-      role: "Back-end Developer at MyDodow",
-      img: "/avatar2.png",
-      text: "<< Dico is finally addressing a long time problem we had when building UIs. It's ease of use and workflow seems really intuitive. Promising! >>",
-      date: "2021.03.02",
-      flag: "🇫🇷",
-    },
-    {
-      name: "Michael Reed",
-      role: "YouTube Creator (85k subscribers)",
-      img: "/avatar3.png",
-      text: "<< Dico is finally addressing a long time problem we had when building UIs. It's ease of use and workflow seems really intuitive. Promising! >>",
-      date: "2021.03.02",
-      flag: "🇬🇧",
-    },
-    {
-      name: "Sophia Mitchell",
-      role: "Music Artist & Podcaster",
-      img: "/avatar1.png",
-      text: "<< Dico is finally addressing a long time problem we had when building UIs. It's ease of use and workflow seems really intuitive. Promising! >>",
-      date: "2021.03.02",
-      flag: "🇺🇸",
-    },
-    {
-      name: "Martin Goutry",
-      role: "Back-end Developer at MyDodow",
-      img: "/avatar2.png",
-      text: "<< Dico is finally addressing a long time problem we had when building UIs. It's ease of use and workflow seems really intuitive. Promising! >>",
-      date: "2021.03.02",
-      flag: "🇫🇷",
-    },
-    {
-      name: "Michael Reed",
-      role: "YouTube Creator (85k subscribers)",
-      img: "/avatar3.png",
-      text: "<< Dico is finally addressing a long time problem we had when building UIs. It's ease of use and workflow seems really intuitive. Promising! >>",
-      date: "2021.03.02",
-      flag: "🇬🇧",
-    },
-  ];
+  {
+    name: "Sophia Mitchell",
+    role: "Music Artist & Podcaster",
+    img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    text: "<< Switching to this workflow has completely changed how fast we create content. Super smooth and extremely powerful. >>",
+    date: "2024.02.18",
+    flag: "🇺🇸",
+  },
+  {
+    name: "Martin Goutry",
+    role: "Back-end Developer at MyDodow",
+    img: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    text: "<< The automation features saved us hours every week. The experience feels modern and incredibly intuitive. >>",
+    date: "2024.01.09",
+    flag: "🇫🇷",
+  },
+  {
+    name: "Michael Reed",
+    role: "YouTube Creator (85k subscribers)",
+    img: "https://images.unsplash.com/photo-1628157588553-5eeea00af15c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fHVzZXIlMjBwcm9maWxlfGVufDB8fDB8fHww",
+    text: "<< The UI is clean, smooth, and just makes sense. I love how effortless it is to set everything up. Highly recommend! >>",
+    date: "2024.03.11",
+    flag: "🇬🇧",
+  },
+  // ---- NEW UPDATED BOTTOM 3 ----
+  {
+    name: "Emily Carter",
+    role: "Founder at Nova Studio",
+    img: "https://images.unsplash.com/photo-1619895862022-09114b41f16f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHVzZXIlMjBwcm9maWxlfGVufDB8fDB8fHww",
+    text: "<< A total game-changer for scaling our creative process. We reduced manual editing time by more than half. Outstanding support and experience! >>",
+    date: "2024.04.22",
+    flag: "🇨🇦",
+  },
+  {
+    name: "Daniel Rossi",
+    role: "Product Designer",
+    img: "https://images.unsplash.com/photo-1590650618955-d682df736c40?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    text: "<< The workflow integration feels seamless and well-thought-out. It helped our team produce consistent results while staying efficient. >>",
+    date: "2024.05.10",
+    flag: "🇮🇹",
+  },
+  {
+    name: "Ava Thompson",
+    role: "Marketing Lead at GrowthLab",
+    img: "https://images.unsplash.com/photo-1502323777036-f29e3972d82f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTh8fHVzZXIlMjBwcm9maWxlfGVufDB8fDB8fHww",
+    text: "<< We've seen a major boost in engagement and content quality. The tools are simple to use and incredibly powerful for scaling campaigns. >>",
+    date: "2024.06.03",
+    flag: "🇦🇺",
+  },
+];
+
 
   return (
     <section className="md:min-h-[60vh] min-h-[70vh] w-full flex flex-col items-center justify-center text-white relative py-12">
@@ -78,17 +80,17 @@ export default function TestimonialsSwiper() {
 
       {/* Title + Nav buttons */}
       <div className="flex items-center justify-center gap-1 mb-10 z-10">
-        <button className="!relative !w-10 !h-10 !mt-0 rounded-full flex items-center justify-center transition-all">
+        {/* <button className="!relative !w-10 !h-10 !mt-0 rounded-full flex items-center justify-center transition-all">
           <ChevronLeft className="swiper-button-prev md:scale-80 scale-65 w-4 h-4 !text-[#E6E6E6]" />
-        </button>
+        </button> */}
         
         <h2 className="text-md md:text-lg whitespace-nowrap  text-[#E6E6E6]">
           " How we have helped businesses "
         </h2>
         
-        <button className=" !relative !w-10 !h-10 !mt-0 rounded-full flex items-center justify-center transition-all">
+        {/* <button className=" !relative !w-10 !h-10 !mt-0 rounded-full flex items-center justify-center transition-all">
           <ChevronRight className="swiper-button-next md:scale-80 scale-65 w-4 h-4 !text-[#E6E6E6]" />
-        </button>
+        </button> */}
       </div>
 
       {/* Swiper */}
