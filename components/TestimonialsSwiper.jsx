@@ -84,9 +84,7 @@ export default function TestimonialsSwiper() {
           <ChevronLeft className="swiper-button-prev md:scale-80 scale-65 w-4 h-4 !text-[#E6E6E6]" />
         </button> */}
         
-        <h2 className="text-md md:text-lg whitespace-nowrap  text-[#E6E6E6]">
-          " How we have helped businesses "
-        </h2>
+        <h2 className="text-md md:text-lg whitespace-nowrap text-[#E6E6E6]">Our Impact</h2>
         
         {/* <button className=" !relative !w-10 !h-10 !mt-0 rounded-full flex items-center justify-center transition-all">
           <ChevronRight className="swiper-button-next md:scale-80 scale-65 w-4 h-4 !text-[#E6E6E6]" />

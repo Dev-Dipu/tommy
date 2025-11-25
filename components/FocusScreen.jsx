@@ -28,9 +28,9 @@ const FocusScreen = () => {
       </div>
       <div className="z-10 flex flex-wrap justify-center items-center gap-6 text-white">
             {[
-          "For all Businesses",
-          "For Enterprises",
-          "For Start-ups",
+          "For Creators",
+          "For Personal Brands",
+          "For Artists & Musicians",
         ].map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <LucideCheckCircle className="text-white md:text-lg text-sm" />

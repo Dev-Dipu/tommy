@@ -28,7 +28,7 @@ const CFocusScreen = () => {
       </div>
       <div className="z-10 flex flex-wrap justify-center items-center gap-6 text-white">
       {[
-    "For all Businesses",
+    "For SMBs",
     "For Enterprises",
     "For Start-ups",
   ].map((item) => (

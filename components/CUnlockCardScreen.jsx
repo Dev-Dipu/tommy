@@ -19,7 +19,7 @@ const CUnlockCardScreen = () => {
     title: "AI Voice Agents & Chatbots",
     desc: `Never miss a customer interaction. Our intelligent voice agents and chatbots handle inquiries 24/7, qualify leads, book appointments, and provide instant support freeing your team to focus on what matters most.`,
     points: [
-      "24/7 customer engagement without added headcount",
+      "24/7 customer engagement",
       "Automated lead qualification and appointment booking",
       "Natural conversations that feel human, powered by AI",
       "Seamless integration with your existing systems",

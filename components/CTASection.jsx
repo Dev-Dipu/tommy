@@ -11,7 +11,7 @@ export default function CTASection() {
 
       {/* Main Heading */}
       <h2 className="z-10 md:text-4xl text-[4.5vw] text-center md:w-1/2 w-[95%] mt-14 font-[poppinmed] text-white leading-tight">
-        Your Content Deserves To Be <br /> Elevated And Automated
+        Everything you need to compete with full-time content teams
       </h2>
 
       {/* Subheading */}
