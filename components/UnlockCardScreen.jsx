@@ -50,7 +50,7 @@ const UnlockCardScreen = () => {
             </div>
 
             <div className="z-10 flex flex-col items-center w-full gap-4">
-                <h2 className="md:text-4xl text-[4.5vw] text-center md:w-1/2 w-[95%] mt-14 font-[poppinmed] text-white leading-snug">
+                <h2 className="md:text-4xl text-[4.5vw] text-center md:w-1/2 w-[95%] mt-14 font-[poppinmed] text-white leading-snug capitalize">
                     unlock your Creative Potential
                 </h2>
                 <p className="text-center md:w-2/5 w-[95%] mb-4">

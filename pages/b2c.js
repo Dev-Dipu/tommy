@@ -14,7 +14,6 @@ const b2b = () => {
             <UnlockCardScreen />
             <FromCardScreen />
             <TestimonialsSwiper />
-            <FAQSection />
             <CTASection />
         </div>
     );

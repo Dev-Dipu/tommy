@@ -22,7 +22,7 @@ const FocusScreen = () => {
       </header>
 
       <div className='z-10 flex flex-col items-center gap-6'>
-        <h2 className='md:text-5xl text-[4.5vw] text-center md:w-1/2 w-[95%] mt-14 font-[poppinmed] text-white leading-snug text-nowrap'>Focus on Creating Not Managing</h2>
+        <h2 className='md:text-5xl text-[4.5vw] text-center md:w-1/2 w-[95%] mt-14 font-[poppinmed] text-white leading-snug text-nowrap'>Focus on Creating – Not Managing</h2>
       <p className='text-center md:w-[45%] w-[95%] mb-4'>At New Gen Services, we empower you to create more, create better, and create at scale. Our AI-powered media solutions handle the heavy lifting so you can focus on what you do best - creating, performing, and connecting with your audience.</p>
       <Button text="Book Meeting" />
       </div>
