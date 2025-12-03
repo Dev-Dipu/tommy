@@ -126,7 +126,7 @@ const FooterScreen = () => {
             />
             <OverlayGlow />
             <div className="md:p-7 p-4 pt-0 md:pt-15 h-full border-t-[0.6] relative">
-            <video
+            {/* <video
   src="/bottomarc.mp4"
   autoPlay
   loop
@@ -134,8 +134,8 @@ const FooterScreen = () => {
   playsInline
   className="
     absolute
-    w-[60%]             /* Slightly larger for mobile coverage */
-    md:w-[45%]          /* Balanced width for desktops */
+    w-[60%]            
+    md:w-[45%]         
     aspect-square
     left-1/2
     bottom-0
@@ -148,7 +148,7 @@ const FooterScreen = () => {
     pointer-events-none
     scale-110
   "
-/>
+/> */}
 
 {/* Bottom fade (visible on all devices) */}
 <div
